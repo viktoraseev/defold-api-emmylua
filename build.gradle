@@ -1,19 +1,27 @@
-group 'DefoldApi'
-version '1.0-SNAPSHOT'
+plugins {
+    id 'java'
+    id 'application'
+}
 
-apply plugin: 'java'
-apply plugin: 'application'
-sourceCompatibility = 1.8
-mainClassName = 'Main'
+group = 'DefoldApi'
+version = '1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+}
+
+application {
+    mainClass = 'Main'
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile "io.reactivex.rxjava2:rxjava:2.1.12"
-    compile "com.google.code.gson:gson:2.8.2"
-    compile 'org.jsoup:jsoup:1.11.2'
+    implementation "io.reactivex.rxjava2:rxjava:2.1.12"
+    implementation "com.google.code.gson:gson:2.8.2"
+    implementation 'org.jsoup:jsoup:1.11.2'
 }
 
 jar {
