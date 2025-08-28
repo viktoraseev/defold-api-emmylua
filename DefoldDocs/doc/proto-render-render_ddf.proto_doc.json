@@ -1,0 +1,182 @@
+{
+  "elements": [
+    {
+      "type": "MESSAGE",
+      "name": "draw_debug_text",
+      "brief": "draw a text on the screen",
+      "description": "Draw a text on the screen. This should be used for debugging purposes only.",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "position",
+          "doc": "position of the text",
+          "types": [
+            "vector3"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "text",
+          "doc": "the text to draw",
+          "types": [
+            "string"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "color",
+          "doc": "color of the text",
+          "types": [
+            "vector4"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "<div class=\"codehilite\"><pre><span></span><code><span class=\"n\">msg</span><span class=\"p\">.</span><span class=\"n\">post</span><span class=\"p\">(</span><span class=\"s2\">&quot;@render:&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;draw_debug_text&quot;</span><span class=\"p\">,</span> <span class=\"p\">{</span> <span class=\"n\">text</span> <span class=\"o\">=</span> <span class=\"s2\">&quot;Hello world!&quot;</span><span class=\"p\">,</span> <span class=\"n\">position</span> <span class=\"o\">=</span> <span class=\"n\">vmath</span><span class=\"p\">.</span><span class=\"n\">vector3</span><span class=\"p\">(</span><span class=\"mi\">200</span><span class=\"p\">,</span> <span class=\"mi\">200</span><span class=\"p\">,</span> <span class=\"mi\">0</span><span class=\"p\">),</span> <span class=\"n\">color</span> <span class=\"o\">=</span> <span class=\"n\">vmath</span><span class=\"p\">.</span><span class=\"n\">vector4</span><span class=\"p\">(</span><span class=\"mi\">1</span><span class=\"p\">,</span> <span class=\"mi\">0</span><span class=\"p\">,</span> <span class=\"mi\">0</span><span class=\"p\">,</span> <span class=\"mi\">1</span><span class=\"p\">)</span> <span class=\"p\">}</span> <span class=\"p\">)</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MESSAGE",
+      "name": "draw_line",
+      "brief": "draw a line on the screen",
+      "description": "Draw a line on the screen. This should mostly be used for debugging purposes.",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "start_point",
+          "doc": "start point of the line",
+          "types": [
+            "vector3"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "end_point",
+          "doc": "end point of the line",
+          "types": [
+            "vector3"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "color",
+          "doc": "color of the line",
+          "types": [
+            "vector4"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "<div class=\"codehilite\"><pre><span></span><code><span class=\"c1\">-- draw a white line from (200, 200) to (200, 300)</span>\n<span class=\"n\">msg</span><span class=\"p\">.</span><span class=\"n\">post</span><span class=\"p\">(</span><span class=\"s2\">&quot;@render:&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;draw_line&quot;</span><span class=\"p\">,</span> <span class=\"p\">{</span> <span class=\"n\">start_point</span> <span class=\"o\">=</span> <span class=\"n\">vmath</span><span class=\"p\">.</span><span class=\"n\">vector3</span><span class=\"p\">(</span><span class=\"mi\">200</span><span class=\"p\">,</span> <span class=\"mi\">200</span><span class=\"p\">,</span> <span class=\"mi\">0</span><span class=\"p\">),</span> <span class=\"n\">end_point</span> <span class=\"o\">=</span> <span class=\"n\">vmath</span><span class=\"p\">.</span><span class=\"n\">vector3</span><span class=\"p\">(</span><span class=\"mi\">200</span><span class=\"p\">,</span> <span class=\"mi\">300</span><span class=\"p\">,</span> <span class=\"mi\">0</span><span class=\"p\">),</span> <span class=\"n\">color</span> <span class=\"o\">=</span> <span class=\"n\">vmath</span><span class=\"p\">.</span><span class=\"n\">vector4</span><span class=\"p\">(</span><span class=\"mi\">1</span><span class=\"p\">,</span> <span class=\"mi\">1</span><span class=\"p\">,</span> <span class=\"mi\">1</span><span class=\"p\">,</span> <span class=\"mi\">1</span><span class=\"p\">)</span> <span class=\"p\">}</span> <span class=\"p\">)</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MESSAGE",
+      "name": "window_resized",
+      "brief": "reports a window size change",
+      "description": "Reports a change in window size. This is initiated on window resize on desktop or by orientation changes\non mobile devices.",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "height",
+          "doc": "the new window height",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "width",
+          "doc": "the new window width",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "<div class=\"codehilite\"><pre><span></span><code><span class=\"kr\">function</span> <span class=\"nf\">on_message</span><span class=\"p\">(</span><span class=\"n\">self</span><span class=\"p\">,</span> <span class=\"n\">message_id</span><span class=\"p\">,</span> <span class=\"n\">message</span><span class=\"p\">)</span>\n    <span class=\"c1\">-- check for the message</span>\n    <span class=\"kr\">if</span> <span class=\"n\">message_id</span> <span class=\"o\">==</span> <span class=\"n\">hash</span><span class=\"p\">(</span><span class=\"s2\">&quot;window_resized&quot;</span><span class=\"p\">)</span> <span class=\"kr\">then</span>\n        <span class=\"c1\">-- the window was resized.</span>\n    <span class=\"kr\">end</span>\n<span class=\"kr\">end</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MESSAGE",
+      "name": "resize",
+      "brief": "resizes the window",
+      "description": "Set the size of the game window. Only works on desktop platforms.",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "height",
+          "doc": "the new window height",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "width",
+          "doc": "the new window width",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "<div class=\"codehilite\"><pre><span></span><code><span class=\"n\">msg</span><span class=\"p\">.</span><span class=\"n\">post</span><span class=\"p\">(</span><span class=\"s2\">&quot;@render:&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;resize&quot;</span><span class=\"p\">,</span> <span class=\"p\">{</span> <span class=\"n\">width</span> <span class=\"o\">=</span> <span class=\"mi\">1024</span><span class=\"p\">,</span> <span class=\"n\">height</span> <span class=\"o\">=</span> <span class=\"mi\">768</span> <span class=\"p\">}</span> <span class=\"p\">)</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MESSAGE",
+      "name": "clear_color",
+      "brief": "set clear color",
+      "description": "Set render clear color. This is the color that appears on the screen where nothing is rendered, i.e. background.",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "color",
+          "doc": "color to use as clear color",
+          "types": [
+            "vector4"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "<div class=\"codehilite\"><pre><span></span><code><span class=\"n\">msg</span><span class=\"p\">.</span><span class=\"n\">post</span><span class=\"p\">(</span><span class=\"s2\">&quot;@render:&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;clear_color&quot;</span><span class=\"p\">,</span> <span class=\"p\">{</span> <span class=\"n\">color</span> <span class=\"o\">=</span> <span class=\"n\">vmath</span><span class=\"p\">.</span><span class=\"n\">vector4</span><span class=\"p\">(</span><span class=\"mi\">1</span><span class=\"p\">,</span> <span class=\"mi\">0</span><span class=\"p\">,</span> <span class=\"mi\">0</span><span class=\"p\">,</span> <span class=\"mi\">0</span><span class=\"p\">)</span> <span class=\"p\">}</span> <span class=\"p\">)</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    }
+  ],
+  "info": {
+    "namespace": "render",
+    "name": "Render",
+    "brief": "Rendering API documentation",
+    "description": "Rendering API documentation",
+    "path": "../proto/render/render_ddf.proto",
+    "file": "",
+    "notes": [],
+    "language": "Lua"
+  }
+}

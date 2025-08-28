@@ -1,0 +1,465 @@
+{
+  "elements": [
+    {
+      "type": "ENUM",
+      "name": "Algorithm",
+      "brief": "encryption algorithm enumeration",
+      "description": "encryption algorithm enumeration",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [
+        {
+          "name": "dmCrypt::ALGORITHM_XTEA",
+          "doc": "",
+          "type": ""
+        }
+      ],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "ENUM",
+      "name": "Result",
+      "brief": "result enumeration",
+      "description": "result enumeration",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [
+        {
+          "name": "dmCrypt::RESULT_OK",
+          "doc": "= 0",
+          "type": ""
+        },
+        {
+          "name": "dmCrypt::RESULT_ERROR",
+          "doc": "= 1",
+          "type": ""
+        }
+      ],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "dmCrypt::Encrypt",
+      "brief": "Encrypt data in place",
+      "description": "Encrypt data in place",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "the encryption result",
+          "types": [
+            "dmCrypt::Result"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "algo",
+          "doc": "algorithm",
+          "types": [
+            "dmCrypt::Algorithm"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "data",
+          "doc": "data",
+          "types": [
+            "const uint8_t*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "datalen",
+          "doc": "data length in bytes",
+          "types": [
+            "uint32_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "key",
+          "doc": "key",
+          "types": [
+            "const uint8_t*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "keylen",
+          "doc": "key length",
+          "types": [
+            "uint32_t"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "dmCrypt::Decrypt",
+      "brief": "Decrypt data in place",
+      "description": "Decrypt data in place",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "the decryption result",
+          "types": [
+            "dmCrypt::Result"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "algo",
+          "doc": "algorithm",
+          "types": [
+            "dmCrypt::Algorithm"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "data",
+          "doc": "data",
+          "types": [
+            "const uint8_t*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "datalen",
+          "doc": "data length in bytes",
+          "types": [
+            "uint32_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "key",
+          "doc": "key",
+          "types": [
+            "const uint8_t*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "keylen",
+          "doc": "key length",
+          "types": [
+            "uint32_t"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "dmCrypt::HashSha1",
+      "brief": "Hash buffer using SHA1",
+      "description": "Hash buffer using SHA1",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "buf",
+          "doc": "The source data to hash",
+          "types": [
+            "const uint8_t*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "buflen",
+          "doc": "The length of source data in bytes",
+          "types": [
+            "uint32_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "digest",
+          "doc": "The destination buffer (20 bytes)",
+          "types": [
+            "uint8_t*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "dmCrypt::HashSha256",
+      "brief": "Hash buffer using SHA256",
+      "description": "Hash buffer using SHA256",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "buf",
+          "doc": "The source data to hash",
+          "types": [
+            "const uint8_t*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "buflen",
+          "doc": "key The length of source data in bytes",
+          "types": [
+            "uint32_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "digest",
+          "doc": "The destination buffer (32 bytes)",
+          "types": [
+            "uint8_t*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "dmCrypt::HashSha512",
+      "brief": "Hash buffer using SHA512",
+      "description": "Hash buffer using SHA512",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "buf",
+          "doc": "The source data to hash",
+          "types": [
+            "const uint8_t*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "buflen",
+          "doc": "key The length of source data in bytes",
+          "types": [
+            "uint32_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "digest",
+          "doc": "The destination buffer (64 bytes)",
+          "types": [
+            "uint8_t*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "dmCrypt::HashMd5",
+      "brief": "Hash buffer using MD5",
+      "description": "Hash buffer using MD5",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "buf",
+          "doc": "The source data to hash",
+          "types": [
+            "const uint8_t*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "buflen",
+          "doc": "key The length of source data in bytes",
+          "types": [
+            "uint32_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "digest",
+          "doc": "The destination buffer (16 bytes)",
+          "types": [
+            "const uint8_t*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "dmCrypt::Base64Encode",
+      "brief": "Base64 encode a buffer",
+      "description": "Base64 encode a buffer",
+      "returnvalues": [
+        {
+          "name": "success",
+          "doc": "true if the encoding went ok",
+          "types": [
+            "bool"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "src",
+          "doc": "The source data to encode",
+          "types": [
+            "const uint8_t*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "src_len",
+          "doc": "key The length of source data in bytes",
+          "types": [
+            "uint32_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "dst",
+          "doc": "The destination buffer",
+          "types": [
+            "uint8_t*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "dst_len[in,out]",
+          "doc": "In: The length of the destination in bytes. Out: The length of the encoded string.",
+          "types": [
+            "uint32_t*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [
+        "Call this function with *dst_len = 0 to obtain the required buffer size in *dst_len"
+      ],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "dmCrypt::Base64Decode",
+      "brief": "Base64 decode a buffer",
+      "description": "Base64 decode a buffer",
+      "returnvalues": [
+        {
+          "name": "success",
+          "doc": "true if the decoding went ok",
+          "types": [
+            "bool"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "src",
+          "doc": "The source data to encode",
+          "types": [
+            "const uint8_t*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "src_len",
+          "doc": "key The length of source data in bytes",
+          "types": [
+            "uint32_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "dst",
+          "doc": "The destination buffer",
+          "types": [
+            "uint8_t*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "dst_len[in,out]",
+          "doc": "In: The length of the destination in bytes. Out: The length of the decoded string.",
+          "types": [
+            "uint32_t*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [
+        "Call this function with *dst_len = 0 to obtain the required buffer size in *dst_len"
+      ],
+      "language": ""
+    }
+  ],
+  "info": {
+    "namespace": "dmCrypt",
+    "name": "Crypt",
+    "brief": "SDK Crypt API documentation",
+    "description": "[file:<dmsdk/dlib/crypt.h>]\n\nVarious hash and encode/decode functions.",
+    "path": "dmsdk/dlib/crypt.h",
+    "file": "dmsdk/dlib/crypt.h",
+    "notes": [],
+    "language": "C++"
+  }
+}

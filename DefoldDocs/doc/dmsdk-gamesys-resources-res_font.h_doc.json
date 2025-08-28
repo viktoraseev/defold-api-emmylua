@@ -1,0 +1,549 @@
+{
+  "elements": [
+    {
+      "type": "CONSTANT",
+      "name": "SDF_EDGE_VALUE",
+      "brief": "The edge value of an sdf glyph bitmap",
+      "description": "The edge value of an sdf glyph bitmap",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "STRUCT",
+      "name": "FontResource",
+      "brief": "Handle to font resource",
+      "description": "Handle to font resource",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "STRUCT",
+      "name": "FontInfo",
+      "brief": "Used to retrieve the information of a font.",
+      "description": "Used to retrieve the information of a font.",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [
+        {
+          "name": "m_Size",
+          "doc": "The size of the font (in points)",
+          "type": "uint32_t"
+        },
+        {
+          "name": "m_ShadowX",
+          "doc": "The shadow distance in X-axis (in pixels)",
+          "type": "float"
+        },
+        {
+          "name": "m_ShadowY",
+          "doc": "The shadow distance in Y-axis (in pixels)",
+          "type": "float"
+        },
+        {
+          "name": "m_ShadowBlur",
+          "doc": "The shadow blur spread [0.255] (in pixels)",
+          "type": "uint32_t"
+        },
+        {
+          "name": "m_ShadowAlpha",
+          "doc": "The shadow alpha value [0..255]",
+          "type": "float"
+        },
+        {
+          "name": "m_Alpha",
+          "doc": "The alpha value [0..255]",
+          "type": "float"
+        },
+        {
+          "name": "m_OutlineAlpha",
+          "doc": "The outline alpha value [0..255]",
+          "type": "float"
+        },
+        {
+          "name": "m_OutlineWidth",
+          "doc": "The outline size (in pixels)",
+          "type": "float"
+        },
+        {
+          "name": "m_OutputFormat",
+          "doc": "The type of font (bitmap or distance field)",
+          "type": "dmRenderDDF::FontTextureFormat"
+        },
+        {
+          "name": "m_RenderMode",
+          "doc": "Single or multi channel",
+          "type": "dmRenderDDF::FontRenderMode"
+        }
+      ],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "STRUCT",
+      "name": "FontGlyph",
+      "brief": "Represents a glyph",
+      "description": "Represents a glyph.\nIf there's an associated image, it is of size width * height * channels.",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [
+        {
+          "name": "m_Width",
+          "doc": "The glyph bounding width",
+          "type": "float"
+        },
+        {
+          "name": "m_Height",
+          "doc": "The glyph bounding height",
+          "type": "float"
+        },
+        {
+          "name": "m_ImageWidth",
+          "doc": "The glyph image width",
+          "type": "int16_t"
+        },
+        {
+          "name": "m_ImageHeight",
+          "doc": "The glyph image height",
+          "type": "int16_t"
+        },
+        {
+          "name": "m_Channels",
+          "doc": "The glyph image height",
+          "type": "int16_t"
+        },
+        {
+          "name": "m_Advance",
+          "doc": "The advance step of the glyph (in pixels)",
+          "type": "float"
+        },
+        {
+          "name": "m_LeftBearing",
+          "doc": "The left bearing of the glyph (in pixels)",
+          "type": "float"
+        },
+        {
+          "name": "m_Ascent",
+          "doc": "The ascent of the glyph. (in pixels)",
+          "type": "float"
+        },
+        {
+          "name": "m_Descent",
+          "doc": "The descent of the glyph. Positive! (in pixels)",
+          "type": "float"
+        }
+      ],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "ENUM",
+      "name": "FontGlyphCompression",
+      "brief": "Describes what compression is used for the glyph i...",
+      "description": "Describes what compression is used for the glyph image",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [
+        {
+          "name": "FONT_GLYPH_COMPRESSION_NONE",
+          "doc": "     No compression",
+          "type": ""
+        },
+        {
+          "name": "FONT_GLYPH_COMPRESSION_DEFLATE",
+          "doc": "  Data is compressed using the deflate() algorithm",
+          "type": ""
+        }
+      ],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "IsWhiteSpace",
+      "brief": "Checks if a codepoint is a whitespace",
+      "description": "Checks if a codepoint is a whitespace",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "true if it's a whitespace",
+          "types": [
+            "bool"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "c",
+          "doc": "the codepoint",
+          "types": [
+            "uint32_t"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResFontGetHandle",
+      "brief": "",
+      "description": "",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "Handle to a font if successful. 0 otherwise.",
+          "types": [
+            "dmRender::HFont"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "font",
+          "doc": "The font resource",
+          "types": [
+            "FontResource*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResFontGetTTFResourceFromCodepoint",
+      "brief": "",
+      "description": "",
+      "returnvalues": [
+        {
+          "name": "ttfresource",
+          "doc": "The ttfresource if successful. 0 otherwise.",
+          "types": [
+            "TTFResource*"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "font",
+          "doc": "The font resource",
+          "types": [
+            "FontResource*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "codepoint",
+          "doc": "The codepoint to query",
+          "types": [
+            "uint32_t"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResFontGetInfo",
+      "brief": "",
+      "description": "",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "RESULT_OK if successful",
+          "types": [
+            "dmResource::Result"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "font",
+          "doc": "The font resource to modify",
+          "types": [
+            "FontResource*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "info",
+          "doc": "The output info",
+          "types": [
+            "FontInfo*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResFontAddGlyph",
+      "brief": "",
+      "description": "",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "RESULT_OK if successful",
+          "types": [
+            "dmResource::Result"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "font",
+          "doc": "The font resource to modify",
+          "types": [
+            "FontResource*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "codepoint",
+          "doc": "The glyph codepoint",
+          "types": [
+            "uint32_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "glyph",
+          "doc": "The glyph meta data",
+          "types": [
+            "FontGlyph*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "imagedata",
+          "doc": "The bitmap or sdf data. May be null for e.g. white space characters. The font will now own this data.",
+          "types": [
+            "void*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResFontRemoveGlyph",
+      "brief": "",
+      "description": "",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "RESULT_OK if successful",
+          "types": [
+            "dmResource::Result"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "font",
+          "doc": "The font resource",
+          "types": [
+            "FontResource*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "codepoint",
+          "doc": "The glyph codepoint",
+          "types": [
+            "uint32_t"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResFontAddGlyphSource",
+      "brief": "add a new glyph range",
+      "description": "Add a new glyph range",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "RESULT_OK if successful",
+          "types": [
+            "dmResource::Result"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "factory",
+          "doc": "The factory",
+          "types": [
+            "dmResource::HFactory"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "fontc_hash",
+          "doc": "The font path hash (.fontc)",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "ttf_hash",
+          "doc": "The ttf  path hash (.ttf)",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "codepoint_min",
+          "doc": "The glyph minimum codepoint (inclusive)",
+          "types": [
+            "uint32_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "codepoint_max",
+          "doc": "The glyph maximum codepoint (inclusive)",
+          "types": [
+            "uint32_t"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResFontRemoveGlyphSource",
+      "brief": "removes all glyph ranges associated with a ttfresource",
+      "description": "Removes all glyph ranges associated with a ttfresource",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "RESULT_OK if successful",
+          "types": [
+            "dmResource::Result"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "factory",
+          "doc": "The factory",
+          "types": [
+            "dmResource::HFactory"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "fontc_hash",
+          "doc": "The font path hash (.fontc)",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "ttf_hash",
+          "doc": "The ttf  path hash (.ttf)",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    }
+  ],
+  "info": {
+    "namespace": "dmGameSystem",
+    "name": "Font Resource",
+    "brief": "Font resource functions",
+    "description": "Font resource functions.",
+    "path": "dmsdk/gamesys/resources/res_font.h",
+    "file": "dmsdk/gamesys/resources/res_font.h",
+    "notes": [],
+    "language": "C++"
+  }
+}

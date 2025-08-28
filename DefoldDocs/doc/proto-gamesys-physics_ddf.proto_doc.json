@@ -1,0 +1,462 @@
+{
+  "elements": [
+    {
+      "type": "MESSAGE",
+      "name": "apply_force",
+      "brief": "applies a force on a collision object",
+      "description": "Post this message to a collision-object-component to apply the specified force on the collision object.\nThe collision object must be dynamic.",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "force",
+          "doc": "the force to be applied on the collision object, measured in Newton",
+          "types": [
+            "vector3"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "position",
+          "doc": "the position where the force should be applied",
+          "types": [
+            "vector3"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "Assuming the instance of the script has a collision-object-component with id \"co\":\n<div class=\"codehilite\"><pre><span></span><code><span class=\"c1\">-- apply a force of 1 Newton towards world-x at the center of the game object instance</span>\n<span class=\"n\">msg</span><span class=\"p\">.</span><span class=\"n\">post</span><span class=\"p\">(</span><span class=\"s2\">&quot;#co&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;apply_force&quot;</span><span class=\"p\">,</span> <span class=\"p\">{</span><span class=\"n\">force</span> <span class=\"o\">=</span> <span class=\"n\">vmath</span><span class=\"p\">.</span><span class=\"n\">vector3</span><span class=\"p\">(</span><span class=\"mi\">1</span><span class=\"p\">,</span> <span class=\"mi\">0</span><span class=\"p\">,</span> <span class=\"mi\">0</span><span class=\"p\">),</span> <span class=\"n\">position</span> <span class=\"o\">=</span> <span class=\"n\">go</span><span class=\"p\">.</span><span class=\"n\">get_world_position</span><span class=\"p\">()})</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MESSAGE",
+      "name": "collision_response",
+      "brief": "reports a collision between two collision objects",
+      "description": "This message is broadcasted to every component of an instance that has a collision object,\nwhen the collision object collides with another collision object. For a script to take action\nwhen such a collision happens, it should check for this message in its <code>on_message</code> callback\nfunction.\nThis message only reports that a collision actually happened and will only be sent once per\ncolliding pair and frame.\nTo retrieve more detailed information, check for the <code>contact_point_response</code> instead.",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "other_id",
+          "doc": "the id of the instance the collision object collided with",
+          "types": [
+            "hash"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "other_position",
+          "doc": "the world position of the instance the collision object collided with",
+          "types": [
+            "vector3"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "other_group",
+          "doc": "the collision group of the other collision object",
+          "types": [
+            "hash"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "own_group",
+          "doc": "the collision group of the own collision object",
+          "types": [
+            "hash"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "How to take action when a collision occurs:\n<div class=\"codehilite\"><pre><span></span><code><span class=\"kr\">function</span> <span class=\"nf\">on_message</span><span class=\"p\">(</span><span class=\"n\">self</span><span class=\"p\">,</span> <span class=\"n\">message_id</span><span class=\"p\">,</span> <span class=\"n\">message</span><span class=\"p\">,</span> <span class=\"n\">sender</span><span class=\"p\">)</span>\n    <span class=\"c1\">-- check for the message</span>\n    <span class=\"kr\">if</span> <span class=\"n\">message_id</span> <span class=\"o\">==</span> <span class=\"n\">hash</span><span class=\"p\">(</span><span class=\"s2\">&quot;collision_response&quot;</span><span class=\"p\">)</span> <span class=\"kr\">then</span>\n        <span class=\"c1\">-- take action</span>\n    <span class=\"kr\">end</span>\n<span class=\"kr\">end</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MESSAGE",
+      "name": "contact_point_response",
+      "brief": "reports a contact point between two collision objects",
+      "description": "This message is broadcasted to every component of an instance that has a collision object,\nwhen the collision object has contact points with respect to another collision object.\nFor a script to take action when such contact points occur, it should check for this message\nin its <code>on_message</code> callback function.\nSince multiple contact points can occur for two colliding objects, this message can be sent\nmultiple times in the same frame for the same two colliding objects. To only be notified once\nwhen the collision occurs, check for the <code>collision_response</code> message instead.",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "position",
+          "doc": "world position of the contact point",
+          "types": [
+            "vector3"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "normal",
+          "doc": "normal in world space of the contact point, which points from the other object towards the current object",
+          "types": [
+            "vector3"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "relative_velocity",
+          "doc": "the relative velocity of the collision object as observed from the other object",
+          "types": [
+            "vector3"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "distance",
+          "doc": "the penetration distance between the objects, which is always positive",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "applied_impulse",
+          "doc": "the impulse the contact resulted in",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "life_time",
+          "doc": "life time of the contact, <strong>not currently used</strong>",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "mass",
+          "doc": "the mass of the current collision object in kg",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "other_mass",
+          "doc": "the mass of the other collision object in kg",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "other_id",
+          "doc": "the id of the instance the collision object is in contact with",
+          "types": [
+            "hash"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "other_position",
+          "doc": "the world position of the other collision object",
+          "types": [
+            "vector3"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "other_group",
+          "doc": "the collision group of the other collision object",
+          "types": [
+            "hash"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "own_group",
+          "doc": "the collision group of the own collision object",
+          "types": [
+            "hash"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "How to take action when a contact point occurs:\n<div class=\"codehilite\"><pre><span></span><code><span class=\"kr\">function</span> <span class=\"nf\">on_message</span><span class=\"p\">(</span><span class=\"n\">self</span><span class=\"p\">,</span> <span class=\"n\">message_id</span><span class=\"p\">,</span> <span class=\"n\">message</span><span class=\"p\">,</span> <span class=\"n\">sender</span><span class=\"p\">)</span>\n    <span class=\"c1\">-- check for the message</span>\n    <span class=\"kr\">if</span> <span class=\"n\">message_id</span> <span class=\"o\">==</span> <span class=\"n\">hash</span><span class=\"p\">(</span><span class=\"s2\">&quot;contact_point_response&quot;</span><span class=\"p\">)</span> <span class=\"kr\">then</span>\n        <span class=\"c1\">-- take action</span>\n    <span class=\"kr\">end</span>\n<span class=\"kr\">end</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MESSAGE",
+      "name": "trigger_response",
+      "brief": "reports interaction (enter/exit) between a trigger collision object and another collision object",
+      "description": "This message is broadcasted to every component of an instance that has a collision object,\nwhen the collision object interacts with another collision object and one of them is a trigger.\nFor a script to take action when such an interaction happens, it should check for this message\nin its <code>on_message</code> callback function.\nThis message only reports that an interaction actually happened and will only be sent once per\ncolliding pair and frame. To retrieve more detailed information, check for the\n<code>contact_point_response</code> instead.",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "other_id",
+          "doc": "the id of the instance the collision object collided with",
+          "types": [
+            "hash"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "enter",
+          "doc": "if the interaction was an entry or not",
+          "types": [
+            "boolean"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "other_group",
+          "doc": "the collision group of the triggering collision object",
+          "types": [
+            "hash"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "own_group",
+          "doc": "the collision group of the own collision object",
+          "types": [
+            "hash"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "How to take action when a trigger interaction occurs:\n<div class=\"codehilite\"><pre><span></span><code><span class=\"kr\">function</span> <span class=\"nf\">on_message</span><span class=\"p\">(</span><span class=\"n\">self</span><span class=\"p\">,</span> <span class=\"n\">message_id</span><span class=\"p\">,</span> <span class=\"n\">message</span><span class=\"p\">,</span> <span class=\"n\">sender</span><span class=\"p\">)</span>\n    <span class=\"c1\">-- check for the message</span>\n    <span class=\"kr\">if</span> <span class=\"n\">message_id</span> <span class=\"o\">==</span> <span class=\"n\">hash</span><span class=\"p\">(</span><span class=\"s2\">&quot;trigger_response&quot;</span><span class=\"p\">)</span> <span class=\"kr\">then</span>\n        <span class=\"kr\">if</span> <span class=\"n\">message</span><span class=\"p\">.</span><span class=\"n\">enter</span> <span class=\"kr\">then</span>\n            <span class=\"c1\">-- take action for entry</span>\n        <span class=\"kr\">else</span>\n            <span class=\"c1\">-- take action for exit</span>\n        <span class=\"kr\">end</span>\n    <span class=\"kr\">end</span>\n<span class=\"kr\">end</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MESSAGE",
+      "name": "ray_cast_response",
+      "brief": "reports a ray cast hit",
+      "description": "This message is sent back to the sender of a <a href=\"#ray_cast_request\">ray_cast_request</a>, or to the physics world listener\nif it is set (see <a href=\"/ref/physics#physics.set_event_listener\">physics.set_event_listener</a>), if the ray hits a collision object.\nSee <a href=\"/ref/physics#physics.raycast_async\">physics.raycast_async</a> for examples of how to use it.",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "fraction",
+          "doc": "the fraction of the hit measured along the ray, where 0 is the start of the ray and 1 is the end",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "position",
+          "doc": "the world position of the hit",
+          "types": [
+            "vector3"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "normal",
+          "doc": "the normal of the surface of the collision object where it was hit",
+          "types": [
+            "vector3"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "id",
+          "doc": "the instance id of the hit collision object",
+          "types": [
+            "hash"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "group",
+          "doc": "the collision group of the hit collision object as a hashed name",
+          "types": [
+            "hash"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "request_id",
+          "doc": "id supplied when the ray cast was requested",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MESSAGE",
+      "name": "ray_cast_missed",
+      "brief": "reports a ray cast miss",
+      "description": "This message is sent back to the sender of a <a href=\"#ray_cast_request\">ray_cast_request</a>, or to the physics world listener\nif it is set (see <a href=\"/ref/physics#physics.set_event_listener\">physics.set_event_listener</a>), if the ray didn't hit any collision object.\nSee <a href=\"/ref/physics#physics.raycast_async\">physics.raycast_async</a> for examples of how to use it.",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "request_id",
+          "doc": "id supplied when the ray cast was requested",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MESSAGE",
+      "name": "contact_point_event",
+      "brief": "reports a contact point between two collision objects in cases where a listener is specified.",
+      "description": "See <a href=\"/ref/physics#physics.set_event_listener\">physics.set_event_listener</a>.\nThis message is sent to a function specified in <a href=\"/ref/physics#physics.set_event_listener\">physics.set_event_listener</a> when\na collision object has contact points with another collision object.\nSince multiple contact points can occur for two colliding objects, this event can be sent\nmultiple times in the same frame for the same two colliding objects. To only be notified once\nwhen the collision occurs, check for the <a href=\"#collision_event\">collision_event</a> event instead.",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "applied_impulse",
+          "doc": "the impulse the contact resulted in",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "distance",
+          "doc": "the penetration distance between the objects, which is always positive",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "a",
+          "doc": "contact point information for object A\n<dl>\n<dt><code>position</code></dt>\n<dd><span class=\"type\">vector3</span> The world position of object A</dd>\n<dt><code>id</code></dt>\n<dd><span class=\"type\">hash</span> The ID of object A</dd>\n<dt><code>group</code></dt>\n<dd><span class=\"type\">hash</span> The collision group of object A</dd>\n<dt><code>relative_velocity</code></dt>\n<dd><span class=\"type\">vector3</span> The relative velocity of the collision object A as observed from B object</dd>\n<dt><code>mass</code></dt>\n<dd><span class=\"type\">number</span> The mass of the collision object A in kg</dd>\n<dt><code>normal</code></dt>\n<dd><span class=\"type\">vector3</span> normal in world space of the contact point, which points from B object towards A object</dd>\n</dl>",
+          "types": [
+            "table"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "b",
+          "doc": "contact point information for object B\n<dl>\n<dt><code>position</code></dt>\n<dd><span class=\"type\">vector3</span> The world position of object B</dd>\n<dt><code>id</code></dt>\n<dd><span class=\"type\">hash</span> The ID of object B</dd>\n<dt><code>group</code></dt>\n<dd><span class=\"type\">hash</span> The collision group of object B</dd>\n<dt><code>relative_velocity</code></dt>\n<dd><span class=\"type\">vector3</span> The relative velocity of the collision object B as observed from A object</dd>\n<dt><code>mass</code></dt>\n<dd><span class=\"type\">number</span> The mass of the collision object B in kg</dd>\n<dt><code>normal</code></dt>\n<dd><span class=\"type\">vector3</span> normal in world space of the contact point, which points from A object towards B object</dd>\n</dl>",
+          "types": [
+            "table"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "How to take action when a contact point occurs:\n<div class=\"codehilite\"><pre><span></span><code><span class=\"n\">physics</span><span class=\"p\">.</span><span class=\"n\">set_event_listener</span><span class=\"p\">(</span><span class=\"kr\">function</span><span class=\"p\">(</span><span class=\"n\">self</span><span class=\"p\">,</span> <span class=\"n\">events</span><span class=\"p\">)</span>\n  <span class=\"kr\">for</span> <span class=\"n\">_</span><span class=\"p\">,</span><span class=\"n\">event</span> <span class=\"kr\">in</span> <span class=\"nb\">ipairs</span><span class=\"p\">(</span><span class=\"n\">events</span><span class=\"p\">):</span>\n    <span class=\"kr\">if</span> <span class=\"n\">event</span><span class=\"p\">[</span><span class=\"s1\">&#39;type&#39;</span><span class=\"p\">]</span> <span class=\"o\">==</span> <span class=\"n\">hash</span><span class=\"p\">(</span><span class=\"s2\">&quot;contact_point_event&quot;</span><span class=\"p\">)</span> <span class=\"kr\">then</span>\n        <span class=\"n\">pprint</span><span class=\"p\">(</span><span class=\"n\">event</span><span class=\"p\">)</span>\n        <span class=\"c1\">-- {</span>\n        <span class=\"c1\">--  applied_impulse = 310.00769042969,</span>\n        <span class=\"c1\">--  distance = 0.0714111328125,</span>\n        <span class=\"c1\">--  a = {</span>\n        <span class=\"c1\">--      position = vmath.vector3(446, 371, 0),</span>\n        <span class=\"c1\">--      relative_velocity = vmath.vector3(1.1722083854693e-06, -20.667181015015, -0),</span>\n        <span class=\"c1\">--      mass = 0,</span>\n        <span class=\"c1\">--      group = hash: [default],</span>\n        <span class=\"c1\">--      id = hash: [/flat],</span>\n        <span class=\"c1\">--      normal = vmath.vector3(-0, -1, -0)</span>\n        <span class=\"c1\">--  },</span>\n        <span class=\"c1\">--  b = {</span>\n        <span class=\"c1\">--      position = vmath.vector3(185, 657.92858886719, 0),</span>\n        <span class=\"c1\">--      relative_velocity = vmath.vector3(-1.1722083854693e-06, 20.667181015015, 0),</span>\n        <span class=\"c1\">--      mass = 10,</span>\n        <span class=\"c1\">--      group = hash: [default],</span>\n        <span class=\"c1\">--      id = hash: [/go2],</span>\n        <span class=\"c1\">--      normal = vmath.vector3(0, 1, 0)</span>\n        <span class=\"c1\">--  },</span>\n        <span class=\"c1\">--  type = hash: [contact_point_event]</span>\n        <span class=\"c1\">-- }</span>\n     <span class=\"kr\">end</span>\n   <span class=\"kr\">end</span>\n<span class=\"kr\">end</span><span class=\"p\">)</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MESSAGE",
+      "name": "collision_event",
+      "brief": "reports a collision between two collision objects in cases where a listener is specified.",
+      "description": "See <a href=\"/ref/physics#physics.set_event_listener\">physics.set_event_listener</a>.\nThis message is sent to a function specified in <a href=\"/ref/physics#physics.set_event_listener\">physics.set_event_listener</a>\nwhen two collision objects collide.\nThis message only reports that a collision has occurred and will be sent once per frame and per colliding pair.\nFor more detailed information, check for the <a href=\"#contact_point_event\">contact_point_event</a>.",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "a",
+          "doc": "collision information for object A\n<dl>\n<dt><code>position</code></dt>\n<dd><span class=\"type\">vector3</span> The world position of object A</dd>\n<dt><code>id</code></dt>\n<dd><span class=\"type\">hash</span> The ID of object A</dd>\n<dt><code>group</code></dt>\n<dd><span class=\"type\">hash</span> The collision group of object A</dd>\n</dl>",
+          "types": [
+            "table"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "b",
+          "doc": "collision information for object B\n<dl>\n<dt><code>position</code></dt>\n<dd><span class=\"type\">vector3</span> The world position of object B</dd>\n<dt><code>id</code></dt>\n<dd><span class=\"type\">hash</span> The ID of object B</dd>\n<dt><code>group</code></dt>\n<dd><span class=\"type\">hash</span> The collision group of object B</dd>\n</dl>",
+          "types": [
+            "table"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "How to take action when a collision occurs:\n<div class=\"codehilite\"><pre><span></span><code><span class=\"n\">physics</span><span class=\"p\">.</span><span class=\"n\">set_event_listener</span><span class=\"p\">(</span><span class=\"kr\">function</span><span class=\"p\">(</span><span class=\"n\">self</span><span class=\"p\">,</span> <span class=\"n\">event</span><span class=\"p\">,</span> <span class=\"n\">data</span><span class=\"p\">)</span>\n  <span class=\"kr\">if</span> <span class=\"n\">event</span> <span class=\"o\">==</span> <span class=\"n\">hash</span><span class=\"p\">(</span><span class=\"s2\">&quot;collision_event&quot;</span><span class=\"p\">)</span> <span class=\"kr\">then</span>\n      <span class=\"n\">pprint</span><span class=\"p\">(</span><span class=\"n\">data</span><span class=\"p\">)</span>\n      <span class=\"c1\">-- {</span>\n      <span class=\"c1\">--  a = {</span>\n      <span class=\"c1\">--          group = hash: [default],</span>\n      <span class=\"c1\">--          position = vmath.vector3(183, 666, 0),</span>\n      <span class=\"c1\">--          id = hash: [/go1]</span>\n      <span class=\"c1\">--      },</span>\n      <span class=\"c1\">--  b = {</span>\n      <span class=\"c1\">--          group = hash: [default],</span>\n      <span class=\"c1\">--          position = vmath.vector3(185, 704.05865478516, 0),</span>\n      <span class=\"c1\">--          id = hash: [/go2]</span>\n      <span class=\"c1\">--      }</span>\n      <span class=\"c1\">-- }</span>\n  <span class=\"kr\">end</span>\n<span class=\"kr\">end</span><span class=\"p\">)</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MESSAGE",
+      "name": "trigger_event",
+      "brief": "reports interaction (enter/exit) between a trigger collision object and another collision object",
+      "description": "See <a href=\"/ref/physics#physics.set_event_listener\">physics.set_event_listener</a>.\nThis message is sent to a function specified in <a href=\"/ref/physics#physics.set_event_listener\">physics.set_event_listener</a>\nwhen a collision object interacts with another collision object and one of them is a trigger.\nThis message only reports that an interaction actually happened and will be sent once per colliding pair and frame.\nFor more detailed information, check for the <a href=\"#contact_point_event\">contact_point_event</a>.",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "enter",
+          "doc": "if the interaction was an entry or not",
+          "types": [
+            "boolean"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "a",
+          "doc": "<dl>\n<dt>interaction information for object A</dt>\n<dt><code>id</code></dt>\n<dd><span class=\"type\">hash</span> The ID of object A</dd>\n<dt><code>group</code></dt>\n<dd><span class=\"type\">hash</span> The collision group of object A</dd>\n</dl>",
+          "types": [
+            "table"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "b",
+          "doc": "collision information for object B\n<dl>\n<dt><code>id</code></dt>\n<dd><span class=\"type\">hash</span> The ID of object B</dd>\n<dt><code>group</code></dt>\n<dd><span class=\"type\">hash</span> The collision group of object B</dd>\n</dl>",
+          "types": [
+            "table"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "How to take action when a trigger interaction occurs:\n<div class=\"codehilite\"><pre><span></span><code><span class=\"n\">physics</span><span class=\"p\">.</span><span class=\"n\">set_event_listener</span><span class=\"p\">(</span><span class=\"kr\">function</span><span class=\"p\">(</span><span class=\"n\">self</span><span class=\"p\">,</span> <span class=\"n\">event</span><span class=\"p\">,</span> <span class=\"n\">data</span><span class=\"p\">)</span>\n <span class=\"kr\">if</span> <span class=\"n\">event</span> <span class=\"o\">==</span>  <span class=\"n\">hash</span><span class=\"p\">(</span><span class=\"s2\">&quot;trigger_event&quot;</span><span class=\"p\">)</span> <span class=\"kr\">then</span>\n     <span class=\"kr\">if</span> <span class=\"n\">data</span><span class=\"p\">.</span><span class=\"n\">enter</span> <span class=\"kr\">then</span>\n        <span class=\"c1\">-- take action for entry</span>\n     <span class=\"kr\">else</span>\n        <span class=\"c1\">-- take action for exit</span>\n     <span class=\"kr\">end</span>\n     <span class=\"n\">pprint</span><span class=\"p\">(</span><span class=\"n\">data</span><span class=\"p\">)</span>\n     <span class=\"c1\">-- {</span>\n     <span class=\"c1\">--  enter = true,</span>\n     <span class=\"c1\">--  b = {</span>\n     <span class=\"c1\">--      group = hash: [default],</span>\n     <span class=\"c1\">--      id = hash: [/go2]</span>\n     <span class=\"c1\">--  },</span>\n     <span class=\"c1\">--  a = {</span>\n     <span class=\"c1\">--      group = hash: [default],</span>\n     <span class=\"c1\">--      id = hash: [/go1]</span>\n     <span class=\"c1\">--  }</span>\n     <span class=\"c1\">-- },</span>\n  <span class=\"kr\">end</span>\n<span class=\"kr\">end</span><span class=\"p\">)</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    }
+  ],
+  "info": {
+    "namespace": "physics",
+    "name": "Collision object",
+    "brief": "Collision object physics API documentation",
+    "description": "Collision object physics API documentation",
+    "path": "../../proto/gamesys/physics_ddf.proto",
+    "file": "",
+    "notes": [],
+    "language": "Lua"
+  }
+}

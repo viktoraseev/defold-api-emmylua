@@ -1,0 +1,110 @@
+{
+  "elements": [
+    {
+      "type": "FUNCTION",
+      "name": "CompCollectionFactorySpawn",
+      "brief": "Spawns a collection of gameobjects in a collection...",
+      "description": "Spawns a collection of gameobjects in a collection using a collection factory component.",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "Result of the operation",
+          "types": [
+            "dmGameObject::Result"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "world",
+          "doc": "Collection factory world",
+          "types": [
+            "HCollectionFactoryWorld"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "component",
+          "doc": "Collection factory component",
+          "types": [
+            "HCollectionFactoryComponent"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "collection",
+          "doc": "Gameobject collection to spawn into",
+          "types": [
+            "HCollection"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "id_prefix",
+          "doc": "Prefix for the spawned instance identifiers. Must start with a forward slash (/). Must be unique within the collection. Pass nullptr to automatically generate a unique identifier prefix (e.g. /collection1, /collection2 etc.).",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "position",
+          "doc": "Position of the spawned objects",
+          "types": [
+            "dmVMath::Point3"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "rotation",
+          "doc": "Rotation of the spawned objects",
+          "types": [
+            "dmVMath::Quat"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "scale",
+          "doc": "Scale of the spawned objects",
+          "types": [
+            "dmVMath::Vector3"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "properties",
+          "doc": "Property containers with override properties",
+          "types": [
+            "dmGameObject::InstancePropertyContainers"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "out_instances",
+          "doc": "A map with the spawned instance id's",
+          "types": [
+            "dmGameObject::InstanceIdMap"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    }
+  ],
+  "info": {
+    "namespace": "dmGameSystem",
+    "name": "Collection factory",
+    "brief": "Collection factory component functions",
+    "description": "API for spawning collections from a collection factory component.",
+    "path": "dmsdk/gamesys/components/comp_collection_factory.h",
+    "file": "dmsdk/gamesys/components/comp_collection_factory.h",
+    "notes": [],
+    "language": "C++"
+  }
+}

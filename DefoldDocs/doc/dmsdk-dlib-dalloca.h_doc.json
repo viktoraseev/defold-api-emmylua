@@ -1,0 +1,13 @@
+{
+  "elements": [],
+  "info": {
+    "namespace": "dmMemory",
+    "name": "Alloca",
+    "brief": "SDK Alloca API documentation",
+    "description": "Alloca functions.",
+    "path": "dmsdk/dlib/dalloca.h",
+    "file": "dmsdk/dlib/dalloca.h",
+    "notes": [],
+    "language": "C++"
+  }
+}

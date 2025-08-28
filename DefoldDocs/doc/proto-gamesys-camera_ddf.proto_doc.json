@@ -1,0 +1,183 @@
+{
+  "elements": [
+    {
+      "type": "MESSAGE",
+      "name": "set_camera",
+      "brief": "sets camera properties",
+      "description": "\nPost this message to a camera-component to set its properties at run-time.\n",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "aspect_ratio",
+          "doc": "aspect ratio of the screen (width divided by height)",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "fov",
+          "doc": "field of view of the lens, measured as the angle in radians between the right and left edge",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "near_z",
+          "doc": "position of the near clipping plane (distance from camera along relative z)",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "far_z",
+          "doc": "position of the far clipping plane (distance from camera along relative z)",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "orthographic_projection",
+          "doc": "set to use an orthographic projection",
+          "types": [
+            "boolean"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "orthographic_zoom",
+          "doc": "zoom level when the camera is using an orthographic projection",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "In the examples, it is assumed that the instance of the script has a camera-component with id \"camera\".\n<div class=\"codehilite\"><pre><span></span><code><span class=\"n\">msg</span><span class=\"p\">.</span><span class=\"n\">post</span><span class=\"p\">(</span><span class=\"s2\">&quot;#camera&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;set_camera&quot;</span><span class=\"p\">,</span> <span class=\"p\">{</span><span class=\"n\">aspect_ratio</span> <span class=\"o\">=</span> <span class=\"mi\">16</span><span class=\"o\">/</span><span class=\"mi\">9</span><span class=\"p\">,</span> <span class=\"n\">fov</span> <span class=\"o\">=</span> <span class=\"nb\">math.pi</span> <span class=\"o\">*</span> <span class=\"mf\">0.5</span><span class=\"p\">,</span> <span class=\"n\">near_z</span> <span class=\"o\">=</span> <span class=\"mf\">0.1</span><span class=\"p\">,</span> <span class=\"n\">far_z</span> <span class=\"o\">=</span> <span class=\"mi\">500</span><span class=\"p\">})</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "PROPERTY",
+      "name": "fov",
+      "brief": "<span class=\"type\">float</span> camera fov",
+      "description": "Vertical field of view of the camera.\nThe type of the property is float.",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "<div class=\"codehilite\"><pre><span></span><code><span class=\"kr\">function</span> <span class=\"nf\">init</span><span class=\"p\">(</span><span class=\"n\">self</span><span class=\"p\">)</span>\n  <span class=\"kd\">local</span> <span class=\"n\">fov</span> <span class=\"o\">=</span> <span class=\"n\">go</span><span class=\"p\">.</span><span class=\"n\">get</span><span class=\"p\">(</span><span class=\"s2\">&quot;#camera&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;fov&quot;</span><span class=\"p\">)</span>\n  <span class=\"n\">go</span><span class=\"p\">.</span><span class=\"n\">set</span><span class=\"p\">(</span><span class=\"s2\">&quot;#camera&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;fov&quot;</span><span class=\"p\">,</span> <span class=\"n\">fov</span> <span class=\"o\">+</span> <span class=\"mf\">0.1</span><span class=\"p\">)</span>\n  <span class=\"n\">go</span><span class=\"p\">.</span><span class=\"n\">animate</span><span class=\"p\">(</span><span class=\"s2\">&quot;#camera&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;fov&quot;</span><span class=\"p\">,</span> <span class=\"n\">go</span><span class=\"p\">.</span><span class=\"n\">PLAYBACK_ONCE_PINGPONG</span><span class=\"p\">,</span> <span class=\"mf\">1.2</span><span class=\"p\">,</span> <span class=\"n\">go</span><span class=\"p\">.</span><span class=\"n\">EASING_LINEAR</span><span class=\"p\">,</span> <span class=\"mi\">1</span><span class=\"p\">)</span>\n<span class=\"kr\">end</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "PROPERTY",
+      "name": "near_z",
+      "brief": "<span class=\"type\">float</span> camera near_z",
+      "description": "Camera frustum near plane.\nThe type of the property is float.",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "<div class=\"codehilite\"><pre><span></span><code><span class=\"kr\">function</span> <span class=\"nf\">init</span><span class=\"p\">(</span><span class=\"n\">self</span><span class=\"p\">)</span>\n  <span class=\"kd\">local</span> <span class=\"n\">near_z</span> <span class=\"o\">=</span> <span class=\"n\">go</span><span class=\"p\">.</span><span class=\"n\">get</span><span class=\"p\">(</span><span class=\"s2\">&quot;#camera&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;near_z&quot;</span><span class=\"p\">)</span>\n  <span class=\"n\">go</span><span class=\"p\">.</span><span class=\"n\">set</span><span class=\"p\">(</span><span class=\"s2\">&quot;#camera&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;near_z&quot;</span><span class=\"p\">,</span> <span class=\"mi\">10</span><span class=\"p\">)</span>\n<span class=\"kr\">end</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "PROPERTY",
+      "name": "far_z",
+      "brief": "<span class=\"type\">float</span> camera far_z",
+      "description": "Camera frustum far plane.\nThe type of the property is float.",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "<div class=\"codehilite\"><pre><span></span><code><span class=\"kr\">function</span> <span class=\"nf\">init</span><span class=\"p\">(</span><span class=\"n\">self</span><span class=\"p\">)</span>\n  <span class=\"kd\">local</span> <span class=\"n\">far_z</span> <span class=\"o\">=</span> <span class=\"n\">go</span><span class=\"p\">.</span><span class=\"n\">get</span><span class=\"p\">(</span><span class=\"s2\">&quot;#camera&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;far_z&quot;</span><span class=\"p\">)</span>\n  <span class=\"n\">go</span><span class=\"p\">.</span><span class=\"n\">set</span><span class=\"p\">(</span><span class=\"s2\">&quot;#camera&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;far_z&quot;</span><span class=\"p\">,</span> <span class=\"mi\">10</span><span class=\"p\">)</span>\n<span class=\"kr\">end</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "PROPERTY",
+      "name": "orthographic_zoom",
+      "brief": "<span class=\"type\">float</span> camera orthographic_zoom",
+      "description": "Zoom level when using an orthographic projection.\nThe type of the property is float.",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "<div class=\"codehilite\"><pre><span></span><code><span class=\"kr\">function</span> <span class=\"nf\">init</span><span class=\"p\">(</span><span class=\"n\">self</span><span class=\"p\">)</span>\n  <span class=\"kd\">local</span> <span class=\"n\">orthographic_zoom</span> <span class=\"o\">=</span> <span class=\"n\">go</span><span class=\"p\">.</span><span class=\"n\">get</span><span class=\"p\">(</span><span class=\"s2\">&quot;#camera&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;orthographic_zoom&quot;</span><span class=\"p\">)</span>\n  <span class=\"n\">go</span><span class=\"p\">.</span><span class=\"n\">set</span><span class=\"p\">(</span><span class=\"s2\">&quot;#camera&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;orthographic_zoom&quot;</span><span class=\"p\">,</span> <span class=\"mf\">2.0</span><span class=\"p\">)</span>\n  <span class=\"n\">go</span><span class=\"p\">.</span><span class=\"n\">animate</span><span class=\"p\">(</span><span class=\"s2\">&quot;#camera&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;orthographic_zoom&quot;</span><span class=\"p\">,</span> <span class=\"n\">go</span><span class=\"p\">.</span><span class=\"n\">PLAYBACK_ONCE_PINGPONG</span><span class=\"p\">,</span> <span class=\"mf\">0.5</span><span class=\"p\">,</span> <span class=\"n\">go</span><span class=\"p\">.</span><span class=\"n\">EASING_INOUTQUAD</span><span class=\"p\">,</span> <span class=\"mi\">2</span><span class=\"p\">)</span>\n<span class=\"kr\">end</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "PROPERTY",
+      "name": "projection",
+      "brief": "<span class=\"type\">float</span> camera projection",
+      "description": "<span class=\"mark\">READ ONLY</span> The calculated projection matrix of the camera.\nThe type of the property is matrix4.",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "<div class=\"codehilite\"><pre><span></span><code><span class=\"kr\">function</span> <span class=\"nf\">init</span><span class=\"p\">(</span><span class=\"n\">self</span><span class=\"p\">)</span>\n  <span class=\"kd\">local</span> <span class=\"n\">projection</span> <span class=\"o\">=</span> <span class=\"n\">go</span><span class=\"p\">.</span><span class=\"n\">get</span><span class=\"p\">(</span><span class=\"s2\">&quot;#camera&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;projection&quot;</span><span class=\"p\">)</span>\n<span class=\"kr\">end</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "PROPERTY",
+      "name": "view",
+      "brief": "<span class=\"type\">float</span> camera view",
+      "description": "<span class=\"mark\">READ ONLY</span> The calculated view matrix of the camera.\nThe type of the property is matrix4.",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "<div class=\"codehilite\"><pre><span></span><code><span class=\"kr\">function</span> <span class=\"nf\">init</span><span class=\"p\">(</span><span class=\"n\">self</span><span class=\"p\">)</span>\n  <span class=\"kd\">local</span> <span class=\"n\">view</span> <span class=\"o\">=</span> <span class=\"n\">go</span><span class=\"p\">.</span><span class=\"n\">get</span><span class=\"p\">(</span><span class=\"s2\">&quot;#camera&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;view&quot;</span><span class=\"p\">)</span>\n<span class=\"kr\">end</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "PROPERTY",
+      "name": "aspect_ratio",
+      "brief": "<span class=\"type\">float</span> camera aspect ratio",
+      "description": "The ratio between the frustum width and height. Used when calculating the\nprojection of a perspective camera.\nThe type of the property is number.",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "<div class=\"codehilite\"><pre><span></span><code><span class=\"kr\">function</span> <span class=\"nf\">init</span><span class=\"p\">(</span><span class=\"n\">self</span><span class=\"p\">)</span>\n  <span class=\"kd\">local</span> <span class=\"n\">aspect_ratio</span> <span class=\"o\">=</span> <span class=\"n\">go</span><span class=\"p\">.</span><span class=\"n\">get</span><span class=\"p\">(</span><span class=\"s2\">&quot;#camera&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;aspect_ratio&quot;</span><span class=\"p\">)</span>\n  <span class=\"n\">go</span><span class=\"p\">.</span><span class=\"n\">set</span><span class=\"p\">(</span><span class=\"s2\">&quot;#camera&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;aspect_ratio&quot;</span><span class=\"p\">,</span> <span class=\"mf\">1.2</span><span class=\"p\">)</span>\n<span class=\"kr\">end</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    }
+  ],
+  "info": {
+    "namespace": "camera",
+    "name": "Camera",
+    "brief": "Camera API documentation",
+    "description": "Messages to control camera components and camera focus.",
+    "path": "../../proto/gamesys/camera_ddf.proto",
+    "file": "",
+    "notes": [],
+    "language": "Lua"
+  }
+}

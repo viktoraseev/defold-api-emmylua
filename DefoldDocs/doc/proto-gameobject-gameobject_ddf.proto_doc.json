@@ -1,0 +1,106 @@
+{
+  "elements": [
+    {
+      "type": "MESSAGE",
+      "name": "acquire_input_focus",
+      "brief": "acquires the user input focus",
+      "description": "Post this message to a game object instance to make that instance acquire the user input focus.\nUser input is distributed by the engine to every instance that has\nrequested it. The last instance to request focus will receive it first.\nThis means that the scripts in the instance will have first-hand-chance\nat reacting on user input, possibly consuming it (by returning\n<code>true</code> from <code>on_input</code>) so that no other instances\ncan react on it. The most common case is for a script to send this message\nto itself when it needs to respond to user input.\nA script belonging to an instance which has the user input focus will\nreceive the input actions in its <code>on_input</code> callback function.\nSee <a href=\"#on_input\">on_input</a> for more information on how user input can be\nhandled.",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "This example demonstrates how to acquire and act on user input.\n<div class=\"codehilite\"><pre><span></span><code><span class=\"kr\">function</span> <span class=\"nf\">init</span><span class=\"p\">(</span><span class=\"n\">self</span><span class=\"p\">)</span>\n    <span class=\"c1\">-- acquire input focus as soon as the instance has been initialized</span>\n    <span class=\"n\">msg</span><span class=\"p\">.</span><span class=\"n\">post</span><span class=\"p\">(</span><span class=\"s2\">&quot;.&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;acquire_input_focus&quot;</span><span class=\"p\">)</span>\n<span class=\"kr\">end</span>\n\n<span class=\"kr\">function</span> <span class=\"nf\">on_input</span><span class=\"p\">(</span><span class=\"n\">self</span><span class=\"p\">,</span> <span class=\"n\">action_id</span><span class=\"p\">,</span> <span class=\"n\">action</span><span class=\"p\">)</span>\n    <span class=\"c1\">-- check which input we received</span>\n    <span class=\"kr\">if</span> <span class=\"n\">action_id</span> <span class=\"o\">==</span> <span class=\"n\">hash</span><span class=\"p\">(</span><span class=\"s2\">&quot;my_action&quot;</span><span class=\"p\">)</span> <span class=\"kr\">then</span>\n        <span class=\"c1\">-- act on the input</span>\n        <span class=\"n\">self</span><span class=\"p\">.</span><span class=\"n\">my_action_amount</span> <span class=\"o\">=</span> <span class=\"n\">action</span><span class=\"p\">.</span><span class=\"n\">value</span>\n    <span class=\"kr\">end</span>\n<span class=\"kr\">end</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MESSAGE",
+      "name": "release_input_focus",
+      "brief": "releases the user input focus",
+      "description": "Post this message to an instance to make that instance release the user input focus.\nSee <a href=\"#acquire_input_focus\">acquire_input_focus</a> for more information on how the user input handling\nworks.",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "How to make a game object stop receiving input:\n<div class=\"codehilite\"><pre><span></span><code><span class=\"n\">msg</span><span class=\"p\">.</span><span class=\"n\">post</span><span class=\"p\">(</span><span class=\"s2\">&quot;.&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;release_input_focus&quot;</span><span class=\"p\">)</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MESSAGE",
+      "name": "set_parent",
+      "brief": "sets the parent of the receiving instance",
+      "description": "When this message is sent to an instance, it sets the parent of that instance. This means that the instance will exist\nin the geometrical space of its parent, like a basic transformation hierarchy or scene graph. If no parent is specified,\nthe instance will be detached from any parent and exist in world space. A script can send this message to itself to set\nthe parent of its instance.",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "parent_id",
+          "doc": "the id of the new parent",
+          "types": [
+            "hash"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "keep_world_transform",
+          "doc": "if the world transform of the instance should be preserved when changing spaces, 0 for false and 1 for true. The default value is 1.",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "Attach myself to another instance \"my_parent\":\n<div class=\"codehilite\"><pre><span></span><code><span class=\"n\">msg</span><span class=\"p\">.</span><span class=\"n\">post</span><span class=\"p\">(</span><span class=\"s2\">&quot;.&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;set_parent&quot;</span><span class=\"p\">,</span> <span class=\"p\">{</span><span class=\"n\">parent_id</span> <span class=\"o\">=</span> <span class=\"n\">go</span><span class=\"p\">.</span><span class=\"n\">get_id</span><span class=\"p\">(</span><span class=\"s2\">&quot;my_parent&quot;</span><span class=\"p\">)})</span>\n</code></pre></div>\n\nAttach an instance \"my_instance\" to another instance \"my_parent\":\n<div class=\"codehilite\"><pre><span></span><code><span class=\"n\">msg</span><span class=\"p\">.</span><span class=\"n\">post</span><span class=\"p\">(</span><span class=\"s2\">&quot;my_instance&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;set_parent&quot;</span><span class=\"p\">,</span> <span class=\"p\">{</span><span class=\"n\">parent_id</span> <span class=\"o\">=</span> <span class=\"n\">go</span><span class=\"p\">.</span><span class=\"n\">get_id</span><span class=\"p\">(</span><span class=\"s2\">&quot;my_parent&quot;</span><span class=\"p\">)})</span>\n</code></pre></div>\n\nDetach an instance \"my_instance\" from its parent (if any):\n<div class=\"codehilite\"><pre><span></span><code><span class=\"n\">msg</span><span class=\"p\">.</span><span class=\"n\">post</span><span class=\"p\">(</span><span class=\"s2\">&quot;my_instance&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;set_parent&quot;</span><span class=\"p\">)</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MESSAGE",
+      "name": "enable",
+      "brief": "enables the receiving component",
+      "description": "This message enables the receiving component. All components are enabled by default, which means they will receive input, updates\nand be a part of the simulation. A component is disabled when it receives the <code>disable</code> message.\n<span class=\"icon-alert\"></span> Components that currently supports this message are:\n<ul>\n<li>Camera</li>\n<li>Collection Proxy</li>\n<li>Collision Object</li>\n<li>Gui</li>\n<li>Label</li>\n<li>Spine Model</li>\n<li>Sprite</li>\n<li>Tile Grid</li>\n<li>Model</li>\n<li>Mesh</li>\n</ul>",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "Enable the component \"my_component\":\n<div class=\"codehilite\"><pre><span></span><code><span class=\"n\">msg</span><span class=\"p\">.</span><span class=\"n\">post</span><span class=\"p\">(</span><span class=\"s2\">&quot;#my_component&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;enable&quot;</span><span class=\"p\">)</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MESSAGE",
+      "name": "disable",
+      "brief": "disables the receiving component",
+      "description": "This message disables the receiving component. All components are enabled by default, which means they will receive input, updates\nand be a part of the simulation. A component is disabled when it receives the <code>disable</code> message.\n<span class=\"icon-alert\"></span> Components that currently supports this message are:\n<ul>\n<li>Camera</li>\n<li>Collection Proxy</li>\n<li>Collision Object</li>\n<li>Gui</li>\n<li>Label</li>\n<li>Spine Model</li>\n<li>Sprite</li>\n<li>Tile Grid</li>\n<li>Model</li>\n<li>Mesh</li>\n</ul>",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "Disable the component \"my_component\":\n<div class=\"codehilite\"><pre><span></span><code><span class=\"n\">msg</span><span class=\"p\">.</span><span class=\"n\">post</span><span class=\"p\">(</span><span class=\"s2\">&quot;#my_component&quot;</span><span class=\"p\">,</span> <span class=\"s2\">&quot;disable&quot;</span><span class=\"p\">)</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    }
+  ],
+  "info": {
+    "namespace": "go",
+    "name": "Game object",
+    "brief": "Game object API documentation",
+    "description": "Game object API documentation",
+    "path": "../../proto/gameobject/gameobject_ddf.proto",
+    "file": "",
+    "notes": [],
+    "language": "Lua"
+  }
+}

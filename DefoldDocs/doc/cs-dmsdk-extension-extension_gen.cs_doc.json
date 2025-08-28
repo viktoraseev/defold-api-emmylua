@@ -1,0 +1,13 @@
+{
+  "elements": [],
+  "info": {
+    "namespace": "Extension",
+    "name": "Extension",
+    "brief": "SDK Extension API documentation",
+    "description": "Functions for creating and controlling engine native extension libraries.",
+    "path": "cs/dmsdk/extension/extension_gen.cs",
+    "file": "dmsdk/extension/extension_gen.cs",
+    "notes": [],
+    "language": "C#"
+  }
+}

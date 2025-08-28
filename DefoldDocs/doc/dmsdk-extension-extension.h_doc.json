@@ -1,0 +1,1150 @@
+{
+  "elements": [
+    {
+      "type": "ENUM",
+      "name": "ExtensionResult",
+      "brief": "result enumeration",
+      "description": "Result enumeration.",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [
+        {
+          "name": "EXTENSION_RESULT_OK",
+          "doc": "",
+          "type": ""
+        },
+        {
+          "name": "EXTENSION_RESULT_INIT_ERROR",
+          "doc": "",
+          "type": ""
+        }
+      ],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "ENUM",
+      "name": "ExtensionEventID",
+      "brief": "event id enumeration",
+      "description": "Event id enumeration.\nEVENT_ID_ICONIFYAPP and EVENT_ID_DEICONIFYAPP only available on <span class=\"icon-osx\"></span> <span class=\"icon-windows\"></span> <span class=\"icon-linux\"></span>",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [
+        {
+          "name": "EXTENSION_EVENT_ID_ACTIVATEAPP",
+          "doc": "",
+          "type": ""
+        },
+        {
+          "name": "EXTENSION_EVENT_ID_DEACTIVATEAPP",
+          "doc": "",
+          "type": ""
+        },
+        {
+          "name": "EXTENSION_EVENT_ID_ICONIFYAPP",
+          "doc": "",
+          "type": ""
+        },
+        {
+          "name": "EXTENSION_EVENT_ID_DEICONIFYAPP",
+          "doc": "",
+          "type": ""
+        },
+        {
+          "name": "EXTENSION_EVENT_ID_ENGINE_INITIALIZED",
+          "doc": "",
+          "type": ""
+        },
+        {
+          "name": "EXTENSION_EVENT_ID_ENGINE_DELETE",
+          "doc": "",
+          "type": ""
+        }
+      ],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "ENUM",
+      "name": "ExtensionCallbackType",
+      "brief": "extra callback type",
+      "description": "Extra callback type for RegisterCallback function.",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [
+        {
+          "name": "EXTENSION_CALLBACK_PRE_RENDER",
+          "doc": "",
+          "type": ""
+        },
+        {
+          "name": "EXTENSION_CALLBACK_POST_RENDER",
+          "doc": "",
+          "type": ""
+        }
+      ],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "ENUM",
+      "name": "ExtensionAppExitCode",
+      "brief": "engine exit code",
+      "description": "Engine exit code.",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [
+        {
+          "name": "EXTENSION_APP_EXIT_CODE_NONE",
+          "doc": "",
+          "type": ""
+        },
+        {
+          "name": "EXTENSION_APP_EXIT_CODE_REBOOT",
+          "doc": "",
+          "type": ""
+        },
+        {
+          "name": "EXTENSION_APP_EXIT_CODE_EXIT",
+          "doc": "",
+          "type": ""
+        }
+      ],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "STRUCT",
+      "name": "ExtensionAppParams",
+      "brief": "The extension app parameters",
+      "description": "The extension app parameters",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [
+        {
+          "name": "m_ConfigFile",
+          "doc": "Deprecated",
+          "type": "HConfigFile"
+        },
+        {
+          "name": "m_ExitStatus",
+          "doc": "App exit code",
+          "type": "ExtensionAppExitCode"
+        }
+      ],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "STRUCT",
+      "name": "ExtensionParams",
+      "brief": "The global parameters avalable when registering an...",
+      "description": "The global parameters avalable when registering and unregistering an extension",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [
+        {
+          "name": "m_ConfigFile",
+          "doc": "The game project settings (including overrides and plugins)",
+          "type": "HConfigFile"
+        },
+        {
+          "name": "m_ResourceFactory",
+          "doc": "The game resource factory / repository",
+          "type": "HResourceFactory"
+        },
+        {
+          "name": "m_L",
+          "doc": "The Lua state.",
+          "type": "lua_State*"
+        }
+      ],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "STRUCT",
+      "name": "ExtensionEvent",
+      "brief": "Extension event",
+      "description": "Extension event",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ExtensionAppParamsInitialize",
+      "brief": "Initializes an extension app params struct\nNOTE: t...",
+      "description": "Initializes an extension app params struct\nNOTE: this is an opaque struct, do not use it's members directly!",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "app_params",
+          "doc": "the params",
+          "types": [
+            "ExtensionAppParams*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ExtensionAppParamsFinalize",
+      "brief": "Finalizes an extension app params struct (dealloca...",
+      "description": "Finalizes an extension app params struct (deallocates internal memory)",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "app_params",
+          "doc": "the params",
+          "types": [
+            "ExtensionAppParams*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ExtensionParamsInitialize",
+      "brief": "Initializes an extension params struct\nNOTE: this ...",
+      "description": "Initializes an extension params struct\nNOTE: this is an opaque struct, do not use it's members directly!",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "app_params",
+          "doc": "the params",
+          "types": [
+            "ExtensionParams*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ExtensionParamsFinalize",
+      "brief": "Finalizes an extension  params struct (deallocates...",
+      "description": "Finalizes an extension  params struct (deallocates internal memory)",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "app_params",
+          "doc": "the params",
+          "types": [
+            "ExtensionParams*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ExtensionAppParamsSetContext",
+      "brief": "Sets a context using a specified name",
+      "description": "Sets a context using a specified name",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "0 if successful",
+          "types": [
+            "int"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "params",
+          "doc": "the params",
+          "types": [
+            "ExtensionAppParams"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "name",
+          "doc": "the context name",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "context",
+          "doc": "the context",
+          "types": [
+            "void*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ExtensionAppParamsGetContextByName",
+      "brief": "Gets a context using a specified name",
+      "description": "Gets a context using a specified name",
+      "returnvalues": [
+        {
+          "name": "context",
+          "doc": "The context, if it exists",
+          "types": [
+            "void*"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "params",
+          "doc": "the params",
+          "types": [
+            "ExtensionAppParams"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "name",
+          "doc": "the context name",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ExtensionAppParamsGetContext",
+      "brief": "Gets a context using a specified name hash",
+      "description": "Gets a context using a specified name hash",
+      "returnvalues": [
+        {
+          "name": "context",
+          "doc": "The context, if it exists",
+          "types": [
+            "void*"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "params",
+          "doc": "the params",
+          "types": [
+            "ExtensionAppParams"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "name_hash",
+          "doc": "the context name hash",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ExtensionAppParamsGetAppExitCode",
+      "brief": "get the app exit code",
+      "description": "get the app exit code",
+      "returnvalues": [
+        {
+          "name": "code",
+          "doc": "engine exit code",
+          "types": [
+            "ExtensionAppExitCode"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "app_params",
+          "doc": "The app params sent to the extension dmExtension::AppInitialize / dmExtension::AppInitialize",
+          "types": [
+            "dmExtension::AppParams*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ExtensionParamsSetContext",
+      "brief": "Sets a context using a specified name",
+      "description": "Sets a context using a specified name",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "0 if successful",
+          "types": [
+            "int"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "params",
+          "doc": "the params",
+          "types": [
+            "ExtensionAppParams"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "name",
+          "doc": "the context name",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "context",
+          "doc": "the context",
+          "types": [
+            "void*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ExtensionParamsGetContextByName",
+      "brief": "Gets a context using a specified name",
+      "description": "Gets a context using a specified name",
+      "returnvalues": [
+        {
+          "name": "context",
+          "doc": "The context, if it exists",
+          "types": [
+            "void*"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "params",
+          "doc": "the params",
+          "types": [
+            "ExtensionParams"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "name",
+          "doc": "the context name",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ExtensionParamsGetContext",
+      "brief": "Gets a context using a specified name hash",
+      "description": "Gets a context using a specified name hash",
+      "returnvalues": [
+        {
+          "name": "context",
+          "doc": "The context, if it exists",
+          "types": [
+            "void*"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "params",
+          "doc": "the params",
+          "types": [
+            "ExtensionParams"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "name_hash",
+          "doc": "the context name hash",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "FExtensionAppInitialize",
+      "brief": "Callback when the app is being initialized. Called...",
+      "description": "Callback when the app is being initialized. Called before <a href=\"#FExtensionInitialize\">FExtensionInitialize</a>",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "EXTENSION_RESULT_OK if all went ok",
+          "types": [
+            "ExtensionResult"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "params",
+          "doc": "",
+          "types": [
+            "ExtensionAppParams"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [
+        "There is no guarantuee of initialization order. If an extension requires another extension to be initialized,\n      that should be handled in [ref:FExtensionInitialize]."
+      ],
+      "language": ""
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "FExtensionAppFinalize",
+      "brief": "Callback when the app is being finalized",
+      "description": "Callback when the app is being finalized",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "EXTENSION_RESULT_OK if all went ok",
+          "types": [
+            "ExtensionResult"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "params",
+          "doc": "",
+          "types": [
+            "ExtensionAppParams"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "FExtensionInitialize",
+      "brief": "Callback after all extensions have been called wit...",
+      "description": "Callback after all extensions have been called with <a href=\"#FExtensionAppInitialize\">FExtensionAppInitialize</a>",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "EXTENSION_RESULT_OK if all went ok",
+          "types": [
+            "ExtensionResult"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "params",
+          "doc": "",
+          "types": [
+            "ExtensionParams"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "FExtensionFinalize",
+      "brief": "Calls for the finalization of an extension",
+      "description": "Calls for the finalization of an extension",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "EXTENSION_RESULT_OK if all went ok",
+          "types": [
+            "ExtensionResult"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "params",
+          "doc": "",
+          "types": [
+            "ExtensionParams"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [
+        "All extensions will be called with `FExtensionFinalize` before moving on to the next step, the [ref:FExtensionAppFinalize]"
+      ],
+      "language": ""
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "FExtensionUpdate",
+      "brief": "Updates an extension. Called for each game frame.",
+      "description": "Updates an extension. Called for each game frame.",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "EXTENSION_RESULT_OK if all went ok",
+          "types": [
+            "ExtensionResult"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "params",
+          "doc": "",
+          "types": [
+            "ExtensionParams"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "FExtensionOnEvent",
+      "brief": "Receives an event from the engine",
+      "description": "Receives an event from the engine",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "params",
+          "doc": "",
+          "types": [
+            "ExtensionParams"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "event",
+          "doc": "The current event",
+          "types": [
+            "ExtensionEvent"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "FExtensionCallback",
+      "brief": "Extra extension callback typedef",
+      "description": "Callback typedef for functions passed to RegisterCallback().",
+      "returnvalues": [
+        {
+          "name": "",
+          "doc": "",
+          "types": [
+            "ExtensionResult"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "params",
+          "doc": "",
+          "types": [
+            "ExtensionParams"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "CONSTANT",
+      "name": "ExtensionDescBufferSize",
+      "brief": "Used when registering new extensions",
+      "description": "Used when registering new extensions",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ExtensionRegister",
+      "brief": "Extension declaration helper. Internal function. U...",
+      "description": "Extension declaration helper. Internal function. Use DM_DECLARE_EXTENSION",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "desc",
+          "doc": "A persistent buffer of at least 128 bytes.",
+          "types": [
+            "void*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "desc_size",
+          "doc": "size of buffer holding desc. in bytes",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "name",
+          "doc": "extension name. human readble. max 16 characters long.",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "app_initialize",
+          "doc": "app-init function. May be null",
+          "types": [
+            "FExtensionAppInitialize"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "app_finalize",
+          "doc": "app-final function. May be null",
+          "types": [
+            "FExtensionAppFinalize"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "initialize",
+          "doc": "init function. May not be 0",
+          "types": [
+            "FExtensionInitialize"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "finalize",
+          "doc": "finalize function. May not be 0",
+          "types": [
+            "FExtensionFinalize"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "update",
+          "doc": "update function. May be null",
+          "types": [
+            "FExtensionUpdate"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "on_event",
+          "doc": "event callback function. May be null",
+          "types": [
+            "FExtensionOnEvent"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ExtensionRegisteriOSUIApplicationDelegate",
+      "brief": "Register application delegate",
+      "description": "Register an iOS application delegate to the engine. Multiple delegates are supported (Max 32)",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "delegate",
+          "doc": "An id<UIApplicationDelegate>, see: https://developer.apple.com/documentation/uikit/uiapplicationdelegate?language=objc",
+          "types": [
+            "void*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "<div class=\"codehilite\"><pre><span></span><code><span class=\"c1\">// myextension_ios.mm</span>\n\n<span class=\"kt\">id</span><span class=\"o\">&lt;</span><span class=\"bp\">UIApplicationDelegate</span><span class=\"o\">&gt;</span><span class=\"w\"> </span><span class=\"n\">g_MyApplicationDelegate</span><span class=\"p\">;</span><span class=\"w\"></span>\n\n<span class=\"err\">\\</span><span class=\"k\">@interface</span> <span class=\"nc\">MyApplicationDelegate</span> : <span class=\"bp\">NSObject</span><span class=\"w\"> </span><span class=\"o\">&lt;</span><span class=\"bp\">UIApplicationDelegate</span><span class=\"o\">&gt;</span><span class=\"w\"></span>\n\n<span class=\"o\">-</span><span class=\"w\"> </span><span class=\"p\">(</span><span class=\"kt\">void</span><span class=\"p\">)</span><span class=\"w\"> </span><span class=\"n\">applicationDidBecomeActive</span><span class=\"o\">:</span><span class=\"p\">(</span><span class=\"bp\">UIApplication</span><span class=\"w\"> </span><span class=\"o\">*</span><span class=\"p\">)</span><span class=\"w\"> </span><span class=\"n\">application</span><span class=\"p\">;</span><span class=\"w\"></span>\n\n<span class=\"err\">\\</span><span class=\"k\">@end</span><span class=\"w\"></span>\n\n<span class=\"err\">\\</span><span class=\"k\">@implementation</span> <span class=\"nc\">MyApplicationDelegate</span><span class=\"w\"></span>\n\n<span class=\"p\">-</span> <span class=\"p\">(</span><span class=\"kt\">void</span><span class=\"p\">)</span> <span class=\"nf\">applicationDidBecomeActive:</span><span class=\"p\">(</span><span class=\"bp\">UIApplication</span><span class=\"w\"> </span><span class=\"o\">*</span><span class=\"p\">)</span> <span class=\"nv\">application</span><span class=\"w\"> </span><span class=\"p\">{</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"n\">dmLogWarning</span><span class=\"p\">(</span><span class=\"s\">&quot;applicationDidBecomeActive - MyAppDelegate&quot;</span><span class=\"p\">);</span><span class=\"w\"></span>\n<span class=\"p\">}</span><span class=\"w\"></span>\n\n<span class=\"err\">\\</span><span class=\"k\">@end</span><span class=\"w\"></span>\n\n<span class=\"k\">struct</span><span class=\"w\"> </span><span class=\"nc\">MyAppDelegateRegister</span><span class=\"w\"></span>\n<span class=\"p\">{</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"n\">MyApplicationDelegate</span><span class=\"o\">*</span><span class=\"w\"> </span><span class=\"n\">m_Delegate</span><span class=\"p\">;</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"n\">MyAppDelegateRegister</span><span class=\"p\">()</span><span class=\"w\"> </span><span class=\"p\">{</span><span class=\"w\"></span>\n<span class=\"w\">        </span><span class=\"n\">m_Delegate</span><span class=\"w\"> </span><span class=\"o\">=</span><span class=\"w\"> </span><span class=\"p\">[[</span><span class=\"n\">FacebookAppDelegate</span><span class=\"w\"> </span><span class=\"n\">alloc</span><span class=\"p\">]</span><span class=\"w\"> </span><span class=\"n\">init</span><span class=\"p\">];</span><span class=\"w\"></span>\n<span class=\"w\">        </span><span class=\"n\">Extension</span><span class=\"o\">::</span><span class=\"n\">RegisteriOSUIApplicationDelegate</span><span class=\"p\">(</span><span class=\"n\">m_Delegate</span><span class=\"p\">);</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"p\">}</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"o\">~</span><span class=\"n\">MyAppDelegateRegister</span><span class=\"p\">()</span><span class=\"w\"> </span><span class=\"p\">{</span><span class=\"w\"></span>\n<span class=\"w\">        </span><span class=\"n\">Extension</span><span class=\"o\">::</span><span class=\"n\">UnregisteriOSUIApplicationDelegate</span><span class=\"p\">(</span><span class=\"n\">m_Delegate</span><span class=\"p\">);</span><span class=\"w\"></span>\n<span class=\"w\">        </span><span class=\"p\">[</span><span class=\"n\">m_Delegate</span><span class=\"w\"> </span><span class=\"k\">release</span><span class=\"p\">];</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"p\">}</span><span class=\"w\"></span>\n<span class=\"p\">};</span><span class=\"w\"></span>\n\n<span class=\"n\">MyAppDelegateRegister</span><span class=\"w\"> </span><span class=\"n\">g_FacebookDelegateRegister</span><span class=\"p\">;</span><span class=\"w\"></span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [
+        "Note that the delegate needs to be registered before the UIApplicationMain in order to\nhandle any earlier callbacks.\n\nThis function is only available on iOS. [icon:ios]"
+      ],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ExtensionUnregisteriOSUIApplicationDelegate",
+      "brief": "Unregister an application delegate",
+      "description": "Deregister a previously registered iOS application delegate\nThis function is only available on iOS. <span class=\"icon-ios\"></span>",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "delegate",
+          "doc": "an id<UIApplicationDelegate>",
+          "types": [
+            "void*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MACRO",
+      "name": "DM_DECLARE_EXTENSION",
+      "brief": "declare a new extension",
+      "description": "Declare and register new extension to the engine.\nThis macro is used to declare the extension callback functions used by the engine to communicate with the extension.",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "symbol",
+          "doc": "external extension symbol description (no quotes).",
+          "types": [
+            "symbol"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "name",
+          "doc": "extension name. Human readable.",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "app_init",
+          "doc": "app-init function. May be null.\n<dl>\n<dt><code>app_params</code></dt>\n<dd><span class=\"type\">ExtensionAppParams*</span> Pointer to an <code>AppParams</code> structure.</dd>\n</dl>",
+          "types": [
+            "function(ExtensionAppParams* app_params)"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "app_final",
+          "doc": "app-final function. May be null.\n<dl>\n<dt><code>app_params</code></dt>\n<dd><span class=\"type\">ExtensionAppParams*</span> Pointer to an <code>AppParams</code> structure.</dd>\n</dl>",
+          "types": [
+            "function(ExtensionAppParams* app_params)"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "init",
+          "doc": "init function. May not be null.\n<dl>\n<dt><code>params</code></dt>\n<dd><span class=\"type\">ExtensionParams*</span> Pointer to a <code>Params</code> structure</dd>\n</dl>",
+          "types": [
+            "function(ExtensionParams* params)"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "update",
+          "doc": "update function. May be null.\n<dl>\n<dt><code>params</code></dt>\n<dd><span class=\"type\">ExtensionParams*</span> Pointer to a <code>Params</code> structure</dd>\n</dl>",
+          "types": [
+            "function(ExtensionParams* params)"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "on_event",
+          "doc": "event callback function. May be null.\n<dl>\n<dt><code>params</code></dt>\n<dd><span class=\"type\">ExtensionParams*</span> Pointer to a <code>Params</code> structure</dd>\n<dt><code>event</code></dt>\n<dd><span class=\"type\">ExtensionEvent*</span> const Pointer to an <code>Event</code> structure</dd>\n</dl>",
+          "types": [
+            "function(ExtensionParams* params, const ExtensionEvent* event)"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "final",
+          "doc": "function. May not be null.\n<dl>\n<dt><code>params</code></dt>\n<dd><span class=\"type\">ExtensionParams*</span> Pointer to an <code>Params</code> structure.</dd>\n</dl>",
+          "types": [
+            "function(ExtensionParams* params)"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "Register a new extension:\n<div class=\"codehilite\"><pre><span></span><code><span class=\"n\">DM_DECLARE_EXTENSION</span><span class=\"p\">(</span><span class=\"n\">MyExt</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"s\">&quot;MyExt&quot;</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">AppInitializeMyExt</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">AppFinalizeMyExt</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">InitializeMyExt</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">UpdateMyExt</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">OnEventMyExt</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">FinalizeMyExt</span><span class=\"p\">);</span><span class=\"w\"></span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MACRO",
+      "name": "DM_PLATFORM_IOS",
+      "brief": "Set if the platform is iPhoneOS <span class=\"icon-ios\"></span>",
+      "description": "Set if the platform is iPhoneOS <span class=\"icon-ios\"></span>",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MACRO",
+      "name": "DM_PLATFORM_ANDROID",
+      "brief": "Set if the platform is Android <span class=\"icon-android\"></span>",
+      "description": "Set if the platform is Android <span class=\"icon-android\"></span>",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MACRO",
+      "name": "DM_PLATFORM_HTML5",
+      "brief": "Set if the platform is Html5 <span class=\"icon-html5\"></span>",
+      "description": "Set if the platform is Html5 <span class=\"icon-html5\"></span>",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MACRO",
+      "name": "DM_PLATFORM_OSX",
+      "brief": "Set if the platform is OSX <span class=\"icon-macos\"></span>",
+      "description": "Set if the platform is OSX <span class=\"icon-macos\"></span>",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MACRO",
+      "name": "DM_PLATFORM_LINUX",
+      "brief": "Set if the platform is Linux <span class=\"icon-linux\"></span>",
+      "description": "Set if the platform is Linux <span class=\"icon-linux\"></span>",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MACRO",
+      "name": "DM_PLATFORM_WINDOWS",
+      "brief": "Set if the platform is Windows <span class=\"icon-windows\"></span> (on both x86 and x86_64)",
+      "description": "Set if the platform is Windows <span class=\"icon-windows\"></span> (on both x86 and x86_64)",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    }
+  ],
+  "info": {
+    "namespace": "",
+    "name": "Extension",
+    "brief": "SDK Extension API documentation",
+    "description": "Functions for creating and controlling engine native extension libraries.",
+    "path": "dmsdk/extension/extension.h",
+    "file": "dmsdk/extension/extension.h",
+    "notes": [],
+    "language": "C++"
+  }
+}

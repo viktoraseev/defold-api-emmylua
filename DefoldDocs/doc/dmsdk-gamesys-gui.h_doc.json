@@ -1,0 +1,122 @@
+{
+  "elements": [
+    {
+      "type": "STRUCT",
+      "name": "CompGuiNodeTypeCtx",
+      "brief": "Gui component node type create/destroy context",
+      "description": "Gui component node type create/destroy context",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "STRUCT",
+      "name": "GuiNodeType",
+      "brief": "Gui component node type",
+      "description": "Gui component node type",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "GuiNodeTypeCreateFunction",
+      "brief": "",
+      "description": "",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "GuiNodeTypeDestroyFunction",
+      "brief": "",
+      "description": "",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "MACRO",
+      "name": "DM_DECLARE_COMPGUI_TYPE",
+      "brief": "Registers a new gui node type to the Gui component",
+      "description": "Registers a new gui node type to the Gui component",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "symbol",
+          "doc": "The unique C++ symbol name",
+          "types": [
+            "symbol"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "name",
+          "doc": "The name of the node type",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "type_create_fn",
+          "doc": "the create function",
+          "types": [
+            "GuiNodeTypeCreateFunction"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "type_destroy_fn",
+          "doc": "the destroy function. May be 0",
+          "types": [
+            "GuiNodeTypeDestroyFunction"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    }
+  ],
+  "info": {
+    "namespace": "dmGameSystem",
+    "name": "GameSystem Gui",
+    "brief": "SDK Gui Component API documentation",
+    "description": "Built-in scripting functions.",
+    "path": "dmsdk/gamesys/gui.h",
+    "file": "dmsdk/gamesys/gui.h",
+    "notes": [],
+    "language": "C++"
+  }
+}

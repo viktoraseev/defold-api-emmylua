@@ -1,0 +1,13 @@
+{
+  "elements": [],
+  "info": {
+    "namespace": "Dlib",
+    "name": "ConfigFile",
+    "brief": "SDK ConfigFile API documentation",
+    "description": "Configuration file access functions.\nThe configuration file is compiled version of the [file:game.project] file.",
+    "path": "cs/dmsdk/dlib/configfile_gen.cs",
+    "file": "dmsdk/dlib/configfile_gen.cs",
+    "notes": [],
+    "language": "C#"
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "elements": [
+    {
+      "type": "FUNCTION",
+      "name": "PostScriptUnrefMessage",
+      "brief": "Sends an unref script message",
+      "description": "Sends a script message to unreference a script object",
+      "returnvalues": [
+        {
+          "name": "success",
+          "doc": "RESULT_OK if successful",
+          "types": [
+            "Result"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "sender",
+          "doc": "The sender",
+          "types": [
+            "dmMessage::Message*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "receiver",
+          "doc": "The receiver",
+          "types": [
+            "dmMessage::Message*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "reference",
+          "doc": "The reference to remove",
+          "types": [
+            "int"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "PostDDF",
+      "brief": "Sends a script message",
+      "description": "Sends a script message. Wraps the message in a dmGameSystemDDF::ScriptMessage struct.",
+      "returnvalues": [
+        {
+          "name": "success",
+          "doc": "true if successful",
+          "types": [
+            "bool"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "message",
+          "doc": "The ddf message to send",
+          "types": [
+            "T*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "sender",
+          "doc": "The sender",
+          "types": [
+            "dmMessage::Message*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "receiver",
+          "doc": "The receiver",
+          "types": [
+            "dmMessage::Message*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "function_ref",
+          "doc": "The function ref. 0 wil cause the \"on_message\" to be called",
+          "types": [
+            "int"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "unref_function_after_call",
+          "doc": "call dmScript::UnrefInInstance on the function_ref after the dmScript::PCall is made",
+          "types": [
+            "bool"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [
+        {
+          "name": "T",
+          "doc": "",
+          "type": ""
+        }
+      ],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "PropertyContainerCreateFromLua",
+      "brief": "Creates a property container from a lua table",
+      "description": "Creates a property container from a lua table",
+      "returnvalues": [
+        {
+          "name": "container",
+          "doc": "The property container",
+          "types": [
+            "HPropertyContainer"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "L",
+          "doc": "The lua state",
+          "types": [
+            "lua_State*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "index",
+          "doc": "The lua stack index of the lua table",
+          "types": [
+            "int"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    }
+  ],
+  "info": {
+    "namespace": "dmGameObject",
+    "name": "Script",
+    "brief": "SDK GameObject script API documentation",
+    "description": "[file:<dmsdk/gameobject/script.h>]",
+    "path": "dmsdk/gameobject/script.h",
+    "file": "dmsdk/gameobject/script.h",
+    "notes": [],
+    "language": "C++"
+  }
+}

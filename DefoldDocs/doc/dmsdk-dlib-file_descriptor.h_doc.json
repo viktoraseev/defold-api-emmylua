@@ -1,0 +1,276 @@
+{
+  "elements": [
+    {
+      "type": "ENUM",
+      "name": "PollEvent",
+      "brief": "Poll events",
+      "description": "Poll events",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [
+        {
+          "name": "EVENT_READ",
+          "doc": "",
+          "type": ""
+        },
+        {
+          "name": "EVENT_WRITE",
+          "doc": "",
+          "type": ""
+        },
+        {
+          "name": "EVENT_ERROR",
+          "doc": "",
+          "type": ""
+        }
+      ],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "STRUCT",
+      "name": "Poller",
+      "brief": "Poller",
+      "description": "Poller",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "PollerClearEvent",
+      "brief": "Clear event from poller.",
+      "description": "Clear event from poller.",
+      "returnvalues": [
+        {
+          "name": "",
+          "doc": "",
+          "types": [
+            "void"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "poller",
+          "doc": "Poller",
+          "types": [
+            "dmFileDescriptor::Poller*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "event",
+          "doc": "Event to clear",
+          "types": [
+            "dmFileDescriptor::PollEvent"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "fd",
+          "doc": "File descriptor to clear",
+          "types": [
+            "int"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "PollerSetEvent",
+      "brief": "Set file descriptor event to poll for",
+      "description": "Set file descriptor event to poll for",
+      "returnvalues": [
+        {
+          "name": "",
+          "doc": "",
+          "types": [
+            "void"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "poller",
+          "doc": "Poller",
+          "types": [
+            "dmFileDescriptor::Poller*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "event",
+          "doc": "Event to set",
+          "types": [
+            "dmFileDescriptor::PollEvent"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "fd",
+          "doc": "File descriptor to clear",
+          "types": [
+            "int"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "PollerHasEvent",
+      "brief": "Check if event exists for file descriptor",
+      "description": "Check if event exists for file descriptor",
+      "returnvalues": [
+        {
+          "name": "",
+          "doc": "True if event exists.",
+          "types": [
+            "bool"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "poller",
+          "doc": "Poller",
+          "types": [
+            "dmFileDescriptor::Poller*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "event",
+          "doc": "Event to check",
+          "types": [
+            "dmFileDescriptor::PollEvent"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "fd",
+          "doc": "File descriptor to clear",
+          "types": [
+            "int"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "PollerReset",
+      "brief": "Reset poller.",
+      "description": "Reset poller.",
+      "returnvalues": [
+        {
+          "name": "",
+          "doc": "",
+          "types": [
+            "void"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "spoller",
+          "doc": "Poller",
+          "types": [
+            "dmFileDescriptor::Poller*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "Wait",
+      "brief": "Wait for event",
+      "description": "Wait for event",
+      "returnvalues": [
+        {
+          "name": "",
+          "doc": "Non-negative value on success, 0 on timeout and\n-1 on error with errno set to indicate the error",
+          "types": [
+            "int"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "poller",
+          "doc": "Poller",
+          "types": [
+            "dmFileDescriptor::Poller*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "timeout",
+          "doc": "Timeout. For blocking pass -1. (milliseconds)",
+          "types": [
+            "int"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    }
+  ],
+  "info": {
+    "namespace": "dmFileDescriptor",
+    "name": "FileDescriptor",
+    "brief": "SDK File Descriptor API documentation",
+    "description": "File Descriptor functions.",
+    "path": "dmsdk/dlib/file_descriptor.h",
+    "file": "dmsdk/dlib/file_descriptor.h",
+    "notes": [],
+    "language": "C++"
+  }
+}

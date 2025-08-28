@@ -1,0 +1,822 @@
+{
+  "elements": [
+    {
+      "type": "MACRO",
+      "name": "DM_DECLARE_RESOURCE_TYPE",
+      "brief": "declare a new resource type",
+      "description": "Declare and register new resource type to the engine.\nThis macro is used to declare the resource type callback functions used by the engine to communicate with the extension.",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "symbol",
+          "doc": "external extension symbol description (no quotes).",
+          "types": [
+            "symbol"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "suffix",
+          "doc": "The file resource suffix, without a \".\".",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "register_fn",
+          "doc": "type register function\n<dl>\n<dt><code>ctx</code></dt>\n<dd><span class=\"type\">dmResource::ResourceTypeRegisterContext&amp;</span> Reference to an <code>ResourceTypeRegisterContext</code> structure.</dd>\n</dl>",
+          "types": [
+            "function(dmResource::ResourceTypeRegisterContext& ctx)"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "deregister_fn",
+          "doc": "type deregister function. May be null.\n<dl>\n<dt><code>ctx</code></dt>\n<dd><span class=\"type\">dmResource::ResourceTypeRegisterContext&amp;</span> Reference to an <code>ResourceTypeRegisterContext</code> structure.</dd>\n</dl>",
+          "types": [
+            "function(dmResource::ResourceTypeRegisterContext& ctx)"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "Register a new type:\n<div class=\"codehilite\"><pre><span></span><code><span class=\"cp\">#include</span><span class=\"w\"> </span><span class=\"cpf\">&lt;dmsdk/resource/resource_params.h&gt;</span><span class=\"cp\"></span>\n<span class=\"cp\">#include</span><span class=\"w\"> </span><span class=\"cpf\">&lt;dmsdk/resource/resource_type.h&gt;</span><span class=\"cp\"></span>\n\n<span class=\"k\">static</span><span class=\"w\"> </span><span class=\"n\">ResourceResult</span><span class=\"w\"> </span><span class=\"nf\">MyResourceTypeScriptCreate</span><span class=\"p\">(</span><span class=\"k\">const</span><span class=\"w\"> </span><span class=\"n\">ResourceCreateParams</span><span class=\"o\">*</span><span class=\"w\"> </span><span class=\"n\">params</span><span class=\"p\">)</span><span class=\"w\"> </span><span class=\"p\">{}</span><span class=\"w\"></span>\n<span class=\"k\">static</span><span class=\"w\"> </span><span class=\"n\">ResourceResult</span><span class=\"w\"> </span><span class=\"nf\">MyResourceTypeScriptDestroy</span><span class=\"p\">(</span><span class=\"k\">const</span><span class=\"w\"> </span><span class=\"n\">ResourceDestroyParams</span><span class=\"o\">*</span><span class=\"w\"> </span><span class=\"n\">params</span><span class=\"p\">)</span><span class=\"w\"> </span><span class=\"p\">{}</span><span class=\"w\"></span>\n<span class=\"k\">static</span><span class=\"w\"> </span><span class=\"n\">ResourceResult</span><span class=\"w\"> </span><span class=\"nf\">MyResourceTypeScriptRecreate</span><span class=\"p\">(</span><span class=\"k\">const</span><span class=\"w\"> </span><span class=\"n\">ResourceRereateParams</span><span class=\"o\">*</span><span class=\"w\"> </span><span class=\"n\">params</span><span class=\"p\">)</span><span class=\"w\"> </span><span class=\"p\">{}</span><span class=\"w\"></span>\n\n<span class=\"k\">struct</span><span class=\"w\"> </span><span class=\"nc\">MyContext</span><span class=\"w\"></span>\n<span class=\"p\">{</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"c1\">// ...</span>\n<span class=\"p\">};</span><span class=\"w\"></span>\n\n<span class=\"k\">static</span><span class=\"w\"> </span><span class=\"n\">ResourceResult</span><span class=\"w\"> </span><span class=\"nf\">RegisterResourceTypeBlob</span><span class=\"p\">(</span><span class=\"n\">HResourceTypeContext</span><span class=\"w\"> </span><span class=\"n\">ctx</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">HResourceType</span><span class=\"w\"> </span><span class=\"n\">type</span><span class=\"p\">)</span><span class=\"w\"></span>\n<span class=\"p\">{</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"c1\">// The engine.cpp creates the contexts for our built in types.</span>\n<span class=\"w\">    </span><span class=\"c1\">// Here we register a custom type</span>\n<span class=\"w\">    </span><span class=\"n\">MyContext</span><span class=\"o\">*</span><span class=\"w\"> </span><span class=\"n\">context</span><span class=\"w\"> </span><span class=\"o\">=</span><span class=\"w\"> </span><span class=\"k\">new</span><span class=\"w\"> </span><span class=\"n\">MyContext</span><span class=\"p\">;</span><span class=\"w\"></span>\n\n<span class=\"w\">    </span><span class=\"n\">ResourceTypeSetContext</span><span class=\"p\">(</span><span class=\"n\">type</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"p\">(</span><span class=\"kt\">void</span><span class=\"o\">*</span><span class=\"p\">)</span><span class=\"n\">context</span><span class=\"p\">);</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"n\">ResourceTypeSetCreateFn</span><span class=\"p\">(</span><span class=\"n\">type</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">MyResourceTypeScriptCreate</span><span class=\"p\">);</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"n\">ResourceTypeSetDestroyFn</span><span class=\"p\">(</span><span class=\"n\">type</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">MyResourceTypeScriptDestroy</span><span class=\"p\">);</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"n\">ResourceTypeSetRecreateFn</span><span class=\"p\">(</span><span class=\"n\">type</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">MyResourceTypeScriptRecreate</span><span class=\"p\">);</span><span class=\"w\"></span>\n<span class=\"p\">}</span><span class=\"w\"></span>\n\n<span class=\"k\">static</span><span class=\"w\"> </span><span class=\"n\">ResourceResult</span><span class=\"w\"> </span><span class=\"nf\">DeregisterResourceTypeBlob</span><span class=\"p\">(</span><span class=\"n\">HResourceTypeContext</span><span class=\"w\"> </span><span class=\"n\">ctx</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">HResourceType</span><span class=\"w\"> </span><span class=\"n\">type</span><span class=\"p\">)</span><span class=\"w\"></span>\n<span class=\"p\">{</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"n\">MyContext</span><span class=\"o\">**</span><span class=\"w\"> </span><span class=\"n\">context</span><span class=\"w\"> </span><span class=\"o\">=</span><span class=\"w\"> </span><span class=\"p\">(</span><span class=\"n\">MyContext</span><span class=\"o\">*</span><span class=\"p\">)</span><span class=\"n\">ResourceTypeGetContext</span><span class=\"p\">(</span><span class=\"n\">type</span><span class=\"p\">);</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"k\">delete</span><span class=\"w\"> </span><span class=\"o\">*</span><span class=\"n\">context</span><span class=\"p\">;</span><span class=\"w\"></span>\n<span class=\"p\">}</span><span class=\"w\"></span>\n\n<span class=\"n\">DM_DECLARE_RESOURCE_TYPE</span><span class=\"p\">(</span><span class=\"n\">ResourceTypeBlob</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"s\">&quot;blobc&quot;</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">RegisterResourceTypeBlob</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">DeregisterResourceTypeBlob</span><span class=\"p\">);</span><span class=\"w\"></span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "FResourceTypeRegister",
+      "brief": "Resource type setup function.",
+      "description": "Resource type setup function.",
+      "returnvalues": [
+        {
+          "name": "RESOURCE_RESULT_OK",
+          "doc": "on success",
+          "types": [
+            ""
+          ]
+        }
+      ],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [
+        "The type is already cerate, and name and name hash properties are valid to get using the RsourceTypeGetName()/RsourceTypeGetNameHash() functions"
+      ],
+      "language": ""
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "FResourceTypeDeregister",
+      "brief": "Resource type destroy function. Generally used to ...",
+      "description": "Resource type destroy function. Generally used to destroy the registered resource type context.",
+      "returnvalues": [
+        {
+          "name": "RESOURCE_RESULT_OK",
+          "doc": "on success",
+          "types": [
+            ""
+          ]
+        }
+      ],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "FResourcePreload",
+      "brief": "Resource preloading function. This may be called f...",
+      "description": "Resource preloading function. This may be called from a separate loading thread\nbut will not keep any mutexes held while executing the call. During this call\nPreloadHint can be called with the supplied hint_info handle.\nIf RESULT_OK is returned, the resource Create function is guaranteed to be called\nwith the preload_data value supplied.",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "RESOURCE_RESULT_OK on success",
+          "types": [
+            "ResourceResult"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "param",
+          "doc": "Resource parameters",
+          "types": [
+            "const dmResource::ResourcePreloadParams*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "FResourceCreate",
+      "brief": "Resource create function",
+      "description": "Resource create function",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "RESOURCE_RESULT_OK on success",
+          "types": [
+            "ResourceResult"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "param",
+          "doc": "Resource parameters",
+          "types": [
+            "const dmResource::ResourceCreateParams*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "FResourcePostCreate",
+      "brief": "Resource postcreate function",
+      "description": "Resource postcreate function",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "RESOURCE_CREATE_RESULT_OK on success or RESOURCE_CREATE_RESULT_PENDING when pending",
+          "types": [
+            "ResourceResult"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "param",
+          "doc": "Resource parameters",
+          "types": [
+            "const dmResource::ResourcePostCreateParams*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [
+        "returning RESOURCE_CREATE_RESULT_PENDING will result in a repeated callback the following update."
+      ],
+      "language": ""
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "FResourceDestroy",
+      "brief": "Resource destroy function",
+      "description": "Resource destroy function",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "RESOURCE_RESULT_OK on success",
+          "types": [
+            "ResourceResult"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "param",
+          "doc": "Resource parameters",
+          "types": [
+            "const dmResource::ResourceDestroyParams*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "FResourceRecreate",
+      "brief": "Resource recreate function. Recreate resource in-p...",
+      "description": "Resource recreate function. Recreate resource in-place.",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "RESOURCE_RESULT_OK on success",
+          "types": [
+            "ResourceResult"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "param",
+          "doc": "Resource parameters",
+          "types": [
+            "const dmResource::ResourceRecreateParams*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [
+        "Beware that any \"in flight\" resource pointers to the actual resource must remain valid after this call."
+      ],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResourceTypeGetContext",
+      "brief": "get context from type",
+      "description": "get context from type",
+      "returnvalues": [
+        {
+          "name": "context",
+          "doc": "0 if no context was registered",
+          "types": [
+            "void*"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "type",
+          "doc": "The type",
+          "types": [
+            "HResourceType"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResourceTypeSetContext",
+      "brief": "set context from type",
+      "description": "set context from type",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "type",
+          "doc": "The type",
+          "types": [
+            "HResourceType"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "context",
+          "doc": "The context to associate with the type",
+          "types": [
+            "void*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResourceTypeGetName",
+      "brief": "get registered extension name of the type",
+      "description": "get registered extension name of the type",
+      "returnvalues": [
+        {
+          "name": "name",
+          "doc": "The name of the type (e.g. \"collectionc\")",
+          "types": [
+            "const char*"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "type",
+          "doc": "The type",
+          "types": [
+            "HResourceType"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResourceTypeGetNameHash",
+      "brief": "get registered extension name hash of the type",
+      "description": "get registered extension name hash of the type",
+      "returnvalues": [
+        {
+          "name": "hash",
+          "doc": "The name hash",
+          "types": [
+            "dmhash_t"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "type",
+          "doc": "The type",
+          "types": [
+            "HResourceType"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResourceTypeSetPreloadFn",
+      "brief": "set preload function for type",
+      "description": "set preload function for type",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "type",
+          "doc": "The type",
+          "types": [
+            "HResourceType"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "fn",
+          "doc": "Function to be called when loading of the resource starts",
+          "types": [
+            "FResourcePreload"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResourceTypeSetCreateFn",
+      "brief": "set create function for type",
+      "description": "set create function for type",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "type",
+          "doc": "The type",
+          "types": [
+            "HResourceType"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "fn",
+          "doc": "Function to be called to creating the resource",
+          "types": [
+            "FResourceCreate"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResourceTypeSetPostCreateFn",
+      "brief": "set post create function for type",
+      "description": "set post create function for type",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "type",
+          "doc": "The type",
+          "types": [
+            "HResourceType"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "fn",
+          "doc": "Function to be called after creating the resource",
+          "types": [
+            "FResourcePostCreate"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResourceTypeSetDestroyFn",
+      "brief": "set destroy function for type",
+      "description": "set destroy function for type",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "type",
+          "doc": "The type",
+          "types": [
+            "HResourceType"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "fn",
+          "doc": "Function to be called to destroy the resource",
+          "types": [
+            "FResourceDestroy"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResourceTypeSetRecreateFn",
+      "brief": "set recreate function for type",
+      "description": "set recreate function for type",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "type",
+          "doc": "The type",
+          "types": [
+            "HResourceType"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "fn",
+          "doc": "Function to be called when recreating the resource",
+          "types": [
+            "FResourceRecreate"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResourceDescriptorGetNameHash",
+      "brief": "get path hash of resource",
+      "description": "get path hash of resource",
+      "returnvalues": [
+        {
+          "name": "hash",
+          "doc": "The path hash",
+          "types": [
+            "dmhash_t"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "rd",
+          "doc": "The resource",
+          "types": [
+            "HResourceDescriptor"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResourceDescriptorSetResource",
+      "brief": "set the resource data",
+      "description": "set the resource data",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "rd",
+          "doc": "The resource handle",
+          "types": [
+            "HResourceDescriptor"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "resource",
+          "doc": "The resource data",
+          "types": [
+            "void*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResourceDescriptorGetResource",
+      "brief": "get the resource data",
+      "description": "get the resource data",
+      "returnvalues": [
+        {
+          "name": "resource",
+          "doc": "The resource data",
+          "types": [
+            "void*"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "rd",
+          "doc": "The resource handle",
+          "types": [
+            "HResourceDescriptor"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResourceDescriptorSetResourceSize",
+      "brief": "set the resource data size",
+      "description": "set the resource data size",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "rd",
+          "doc": "The resource handle",
+          "types": [
+            "HResourceDescriptor"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "size",
+          "doc": "The resource data size (in bytes)",
+          "types": [
+            "uint32_t"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResourceDescriptorGetResourceSize",
+      "brief": "get the resource data size",
+      "description": "get the resource data size",
+      "returnvalues": [
+        {
+          "name": "size",
+          "doc": "The resource data size (in bytes)",
+          "types": [
+            "uint32_t"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "rd",
+          "doc": "The resource handle",
+          "types": [
+            "HResourceDescriptor"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResourceDescriptorSetPrevResource",
+      "brief": "set the previous resource data",
+      "description": "set the previous resource data",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "rd",
+          "doc": "The resource handle",
+          "types": [
+            "HResourceDescriptor"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "resource",
+          "doc": "The resource data",
+          "types": [
+            "void*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [
+        "only used when recreating a resource"
+      ],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResourceDescriptorGetPrevResource",
+      "brief": "get the previous resource data",
+      "description": "get the previous resource data",
+      "returnvalues": [
+        {
+          "name": "resource",
+          "doc": "The resource data",
+          "types": [
+            "void*"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "rd",
+          "doc": "The resource handle",
+          "types": [
+            "HResourceDescriptor"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [
+        "only used when recreating a resource"
+      ],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ResourceDescriptorGetType",
+      "brief": "get the resource type",
+      "description": "get the resource type",
+      "returnvalues": [
+        {
+          "name": "resource",
+          "doc": "The resource type",
+          "types": [
+            "HResourceType"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "rd",
+          "doc": "The resource handle",
+          "types": [
+            "HResourceDescriptor"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    }
+  ],
+  "info": {
+    "namespace": "",
+    "name": "Resource",
+    "brief": "Resource",
+    "description": "Functions for managing resource types.",
+    "path": "dmsdk/resource/resource_doc.h",
+    "file": "dmsdk/resource/resource_doc.h",
+    "notes": [],
+    "language": "C++"
+  }
+}

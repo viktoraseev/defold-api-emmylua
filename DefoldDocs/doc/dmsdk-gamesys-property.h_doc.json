@@ -1,0 +1,228 @@
+{
+  "elements": [
+    {
+      "type": "STRUCT",
+      "name": "PropVector3",
+      "brief": "",
+      "description": "",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "STRUCT",
+      "name": "PropVector4",
+      "brief": "",
+      "description": "",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "IsReferencingProperty",
+      "brief": "Checks if the name matches any field in the proper...",
+      "description": "Checks if the name matches any field in the property",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "true if the property contains the name",
+          "types": [
+            "bool"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "property",
+          "doc": "the property",
+          "types": [
+            "const PropVector3&"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "query",
+          "doc": "the name to look for (e.g. hash(\"pos.x\"))",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "IsReferencingProperty",
+      "brief": "Checks if the name matches any field in the proper...",
+      "description": "Checks if the name matches any field in the property",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "true if the property contains the name",
+          "types": [
+            "bool"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "property",
+          "doc": "the property",
+          "types": [
+            "const PropVector4&"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "query",
+          "doc": "the name to look for (e.g. hash(\"pos.x\"))",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "GetResourceProperty",
+      "brief": "Gets the resource path hash",
+      "description": "Gets the resource path hash",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "RESULT_OK if successful",
+          "types": [
+            "dmGameObject::PropertyResult"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "property",
+          "doc": "the property",
+          "types": [
+            "const PropVector4&"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "resource",
+          "doc": "the resource to get the",
+          "types": [
+            "void*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "out_value",
+          "doc": "the out property",
+          "types": [
+            "dmGameObject::PropertyDesc&"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "SetResourceProperty",
+      "brief": "Updates the reference count of the resources, and ...",
+      "description": "Updates the reference count of the resources, and returns the new resource.",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "RESULT_OK if successful",
+          "types": [
+            "dmGameObject::PropertyResult"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "factory",
+          "doc": "the factory",
+          "types": [
+            "dmGameObject::HFactory"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "value",
+          "doc": "the property containing the hash of the resources to get",
+          "types": [
+            "const dmGameObject::PropertyVar&"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "ext",
+          "doc": "the hash of the resource file suffix (without the \".\"). E.g. hash(\"spritec\")",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "out_resource",
+          "doc": "pointer to the current resource. Will also get the pointer to the new resource.",
+          "types": [
+            "void**"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    }
+  ],
+  "info": {
+    "namespace": "dmGameSystem",
+    "name": "Property",
+    "brief": "Property functions",
+    "description": "Property functions.",
+    "path": "dmsdk/gamesys/property.h",
+    "file": "dmsdk/gamesys/property.h",
+    "notes": [],
+    "language": "C++"
+  }
+}

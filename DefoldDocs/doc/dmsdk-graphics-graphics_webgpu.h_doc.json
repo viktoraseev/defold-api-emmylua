@@ -1,0 +1,13 @@
+{
+  "elements": [],
+  "info": {
+    "namespace": "dmGraphics",
+    "name": "Graphics WebGPU",
+    "brief": "Graphics API documentation",
+    "description": "[file:<dmsdk/graphics/graphics_webgpu.h>]\n\nGraphics WebGPU API",
+    "path": "dmsdk/graphics/graphics_webgpu.h",
+    "file": "dmsdk/graphics/graphics_webgpu.h",
+    "notes": [],
+    "language": "C++"
+  }
+}

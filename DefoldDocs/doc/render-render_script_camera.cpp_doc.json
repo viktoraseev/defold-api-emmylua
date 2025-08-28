@@ -1,0 +1,479 @@
+{
+  "elements": [
+    {
+      "type": "FUNCTION",
+      "name": "camera.get_cameras",
+      "brief": "get all camera URLs",
+      "description": "This function returns a table with all the camera URLs that have been\nregistered in the render context.",
+      "returnvalues": [
+        {
+          "name": "cameras",
+          "doc": "a table with all camera URLs",
+          "types": [
+            "table"
+          ]
+        }
+      ],
+      "parameters": [],
+      "examples": "<div class=\"codehilite\"><pre><span></span><code><span class=\"kr\">for</span> <span class=\"n\">k</span><span class=\"p\">,</span><span class=\"n\">v</span> <span class=\"kr\">in</span> <span class=\"nb\">pairs</span><span class=\"p\">(</span><span class=\"n\">camera</span><span class=\"p\">.</span><span class=\"n\">get_cameras</span><span class=\"p\">())</span> <span class=\"kr\">do</span>\n    <span class=\"n\">render</span><span class=\"p\">.</span><span class=\"n\">set_camera</span><span class=\"p\">(</span><span class=\"n\">v</span><span class=\"p\">)</span>\n    <span class=\"n\">render</span><span class=\"p\">.</span><span class=\"n\">draw</span><span class=\"p\">(...)</span>\n    <span class=\"n\">render</span><span class=\"p\">.</span><span class=\"n\">set_camera</span><span class=\"p\">()</span>\n<span class=\"kr\">end</span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "camera.get_enabled",
+      "brief": "get enabled",
+      "description": "get enabled",
+      "returnvalues": [
+        {
+          "name": "flag",
+          "doc": "true if the camera is enabled",
+          "types": [
+            "boolean"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "camera",
+          "doc": "camera id",
+          "types": [
+            "url",
+            "number",
+            "nil"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "camera.get_projection",
+      "brief": "get projection matrix",
+      "description": "get projection matrix",
+      "returnvalues": [
+        {
+          "name": "projection",
+          "doc": "the projection matrix.",
+          "types": [
+            "matrix4"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "camera",
+          "doc": "camera id",
+          "types": [
+            "url",
+            "number",
+            "nil"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "camera.get_view",
+      "brief": "get view matrix",
+      "description": "get view matrix",
+      "returnvalues": [
+        {
+          "name": "view",
+          "doc": "the view matrix.",
+          "types": [
+            "matrix4"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "camera",
+          "doc": "camera id",
+          "types": [
+            "url",
+            "number",
+            "nil"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "camera.get_aspect_ratio",
+      "brief": "get aspect ratio",
+      "description": "get aspect ratio",
+      "returnvalues": [
+        {
+          "name": "aspect_ratio",
+          "doc": "the aspect ratio.",
+          "types": [
+            "number"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "camera",
+          "doc": "camera id",
+          "types": [
+            "url",
+            "number",
+            "nil"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "camera.get_far_z",
+      "brief": "get far z",
+      "description": "get far z",
+      "returnvalues": [
+        {
+          "name": "far_z",
+          "doc": "the far z.",
+          "types": [
+            "number"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "camera",
+          "doc": "camera id",
+          "types": [
+            "url",
+            "number",
+            "nil"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "camera.get_fov",
+      "brief": "get field of view",
+      "description": "get field of view",
+      "returnvalues": [
+        {
+          "name": "fov",
+          "doc": "the field of view.",
+          "types": [
+            "number"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "camera",
+          "doc": "camera id",
+          "types": [
+            "url",
+            "number",
+            "nil"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "camera.get_near_z",
+      "brief": "get near z",
+      "description": "get near z",
+      "returnvalues": [
+        {
+          "name": "near_z",
+          "doc": "the near z.",
+          "types": [
+            "number"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "camera",
+          "doc": "camera id",
+          "types": [
+            "url",
+            "number",
+            "nil"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "camera.get_orthographic_zoom",
+      "brief": "get orthographic zoom",
+      "description": "get orthographic zoom",
+      "returnvalues": [
+        {
+          "name": "orthographic_zoom",
+          "doc": "the zoom level when the camera uses orthographic projection.",
+          "types": [
+            "number"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "camera",
+          "doc": "camera id",
+          "types": [
+            "url",
+            "number",
+            "nil"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "camera.set_aspect_ratio",
+      "brief": "set aspect ratio",
+      "description": "set aspect ratio",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "camera",
+          "doc": "camera id",
+          "types": [
+            "url",
+            "number",
+            "nil"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "aspect_ratio",
+          "doc": "the aspect ratio.",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "camera.set_far_z",
+      "brief": "set far z",
+      "description": "set far z",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "camera",
+          "doc": "camera id",
+          "types": [
+            "url",
+            "number",
+            "nil"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "far_z",
+          "doc": "the far z.",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "camera.set_fov",
+      "brief": "set field of view",
+      "description": "set field of view",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "camera",
+          "doc": "camera id",
+          "types": [
+            "url",
+            "number",
+            "nil"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "fov",
+          "doc": "the field of view.",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "camera.set_near_z",
+      "brief": "set near z",
+      "description": "set near z",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "camera",
+          "doc": "camera id",
+          "types": [
+            "url",
+            "number",
+            "nil"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "near_z",
+          "doc": "the near z.",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "camera.set_orthographic_zoom",
+      "brief": "set orthographic zoom",
+      "description": "set orthographic zoom",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "camera",
+          "doc": "camera id",
+          "types": [
+            "url",
+            "number",
+            "nil"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "orthographic_zoom",
+          "doc": "the zoom level when the camera uses orthographic projection.",
+          "types": [
+            "number"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    }
+  ],
+  "info": {
+    "namespace": "camera",
+    "name": "Camera",
+    "brief": "Camera API documentation",
+    "description": "Camera functions, messages and constants.",
+    "path": "render/render_script_camera.cpp",
+    "file": "",
+    "notes": [],
+    "language": "Lua"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "elements": [
+    {
+      "type": "FUNCTION",
+      "name": "OpenGLGetRenderTargetId",
+      "brief": "Get the OpenGL render target id from a render targ...",
+      "description": "Get the OpenGL render target id from a render target",
+      "returnvalues": [
+        {
+          "name": "id",
+          "doc": "the OpenGL render target id",
+          "types": [
+            "uint32_t"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "context",
+          "doc": "the OpenGL context",
+          "types": [
+            "dmGraphics::HContext"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "render_target",
+          "doc": "the render target to get the ID from",
+          "types": [
+            "dmGraphics::HRenderTarget"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    }
+  ],
+  "info": {
+    "namespace": "dmGraphics",
+    "name": "Graphics OpenGL",
+    "brief": "Graphics API documentation",
+    "description": "[file:<dmsdk/graphics/graphics_opengl.h>]\n\nGraphics OpenGL API",
+    "path": "dmsdk/graphics/graphics_opengl.h",
+    "file": "dmsdk/graphics/graphics_opengl.h",
+    "notes": [],
+    "language": "C++"
+  }
+}

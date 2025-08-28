@@ -1,0 +1,612 @@
+{
+  "elements": [
+    {
+      "type": "TYPEDEF",
+      "name": "HPropertyContainer",
+      "brief": "Opaque handle to a list of properties",
+      "description": "Opaque handle to a list of properties",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "HPropertyContainerBuilder",
+      "brief": "Opaque handle to a property container builder",
+      "description": "Opaque handle to a property container builder",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "STRUCT",
+      "name": "PropertyContainerBuilderParams",
+      "brief": "PropertyContainerBuilderParams\nHelper struct to c...",
+      "description": "PropertyContainerBuilderParams\nHelper struct to create a property container builder.\nIt is required to fill out how many items of each type that is wanted.",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "m_NumberCount",
+          "doc": "Number of items of type float",
+          "types": [
+            "int32_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "m_HashCount",
+          "doc": "Number of items of type dmhash_t",
+          "types": [
+            "int32_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "m_URLStringCount",
+          "doc": "Number of items of type const char*",
+          "types": [
+            "int32_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "m_URLStringSize",
+          "doc": "Size of all url strings combined, including null terminators",
+          "types": [
+            "int32_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "m_URLCount",
+          "doc": "Number of items of type dmMessage::URL",
+          "types": [
+            "int32_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "m_Vector3Count",
+          "doc": "Number of items of type vector3 (float[3])",
+          "types": [
+            "int32_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "m_Vector4Count",
+          "doc": "Number of items of type vector4 (float[4])",
+          "types": [
+            "int32_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "m_QuatCount",
+          "doc": "Number of items of type quaternion (float[4])",
+          "types": [
+            "int32_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "m_BoolCount",
+          "doc": "Number of items of type bool",
+          "types": [
+            "int32_t"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "PropertyContainerCreateBuilder",
+      "brief": "Create a property container builder with memory pr...",
+      "description": "Create a property container builder with memory preallocated",
+      "returnvalues": [
+        {
+          "name": "container",
+          "doc": "The builder",
+          "types": [
+            "HPropertyContainerBuilder"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "params",
+          "doc": "The params holding the memory requirements",
+          "types": [
+            "PropertyContainerBuilderParams"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "PropertyContainerPushFloat",
+      "brief": "Add a property of type float to the container",
+      "description": "Add a property of type float to the container",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "builder",
+          "doc": "The container builder",
+          "types": [
+            "HPropertyContainerBuilder"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "id",
+          "doc": "The id of the property",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "value",
+          "doc": "The value of the property",
+          "types": [
+            "float"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "PropertyContainerPushVector3",
+      "brief": "Add a property of type float3 to the container",
+      "description": "Add a property of type float3 to the container",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "builder",
+          "doc": "The container builder",
+          "types": [
+            "HPropertyContainerBuilder"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "id",
+          "doc": "The id of the property",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "values",
+          "doc": "The value of the property (3 floats)",
+          "types": [
+            "float*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "PropertyContainerPushVector4",
+      "brief": "Add a property of type float4 to the container",
+      "description": "Add a property of type float4 to the container",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "builder",
+          "doc": "The container builder",
+          "types": [
+            "HPropertyContainerBuilder"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "id",
+          "doc": "The id of the property",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "values",
+          "doc": "The value of the property (4 floats)",
+          "types": [
+            "float*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "PropertyContainerPushQuat",
+      "brief": "Add a property of type float4 to the container",
+      "description": "Add a property of type float4 to the container",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "builder",
+          "doc": "The container builder",
+          "types": [
+            "HPropertyContainerBuilder"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "id",
+          "doc": "The id of the property",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "values",
+          "doc": "The value of the property (4 floats)",
+          "types": [
+            "float*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "PropertyContainerPushBool",
+      "brief": "Add a property of type bool to the container",
+      "description": "Add a property of type bool to the container",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "builder",
+          "doc": "The container builder",
+          "types": [
+            "HPropertyContainerBuilder"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "id",
+          "doc": "The id of the property",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "value",
+          "doc": "The value of the property",
+          "types": [
+            "bool"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "PropertyContainerPushHash",
+      "brief": "Add a property of type dmhash_t to the container",
+      "description": "Add a property of type dmhash_t to the container",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "builder",
+          "doc": "The container builder",
+          "types": [
+            "HPropertyContainerBuilder"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "id",
+          "doc": "The id of the property",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "value",
+          "doc": "The value of the property",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "PropertyContainerPushURLString",
+      "brief": "Add a property of type (url) string to the contain...",
+      "description": "Add a property of type (url) string to the container",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "builder",
+          "doc": "The container builder",
+          "types": [
+            "HPropertyContainerBuilder"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "id",
+          "doc": "The id of the property",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "value",
+          "doc": "The value of the property",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "PropertyContainerPushURL",
+      "brief": "Add a property of type dmMessage::URL to the conta...",
+      "description": "Add a property of type dmMessage::URL to the container",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "builder",
+          "doc": "The container builder",
+          "types": [
+            "HPropertyContainerBuilder"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "id",
+          "doc": "The id of the property",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "value",
+          "doc": "The value of the property",
+          "types": [
+            "dmMessage::URL"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "PropertyContainerCreate",
+      "brief": "Creates the final property container",
+      "description": "Creates the final property container",
+      "returnvalues": [
+        {
+          "name": "container",
+          "doc": "The property container",
+          "types": [
+            "HPropertyContainer"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "builder",
+          "doc": "The property container builder",
+          "types": [
+            "HPropertyContainerBuilder"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "PropertyContainerDestroy",
+      "brief": "Deallocates a property container",
+      "description": "Deallocates a property container",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "container",
+          "doc": "The property container",
+          "types": [
+            "HPropertyContainer"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "PropertyContainerCopy",
+      "brief": "Allocates and copies a property container",
+      "description": "Allocates and copies a property container",
+      "returnvalues": [
+        {
+          "name": "container",
+          "doc": "The new property container",
+          "types": [
+            "HPropertyContainer"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "original",
+          "doc": "The original property container",
+          "types": [
+            "HPropertyContainer"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "PropertyContainerMerge",
+      "brief": "Merges two containers into a newly allocated conta...",
+      "description": "Merges two containers into a newly allocated container\nThe properties in the <code>overrides</code> container will take presedence.",
+      "returnvalues": [
+        {
+          "name": "container",
+          "doc": "The merged property container",
+          "types": [
+            "HPropertyContainer"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "original",
+          "doc": "The original property container",
+          "types": [
+            "HPropertyContainer"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "overrides",
+          "doc": "The container with override properties",
+          "types": [
+            "HPropertyContainer"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    }
+  ],
+  "info": {
+    "namespace": "dmGameObject",
+    "name": "PropertyContainer",
+    "brief": "Game object property container",
+    "description": "API for game object property container",
+    "path": "dmsdk/gameobject/gameobject_props.h",
+    "file": "dmsdk/gameobject/gameobject_props.h",
+    "notes": [],
+    "language": "C++"
+  }
+}

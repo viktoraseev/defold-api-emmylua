@@ -1,0 +1,13 @@
+{
+  "elements": [],
+  "info": {
+    "namespace": "Dlib",
+    "name": "Hash",
+    "brief": "SDK Hash API documentation",
+    "description": "Hash functions.",
+    "path": "cs/dmsdk/dlib/hash_gen.cs",
+    "file": "dmsdk/dlib/hash_gen.cs",
+    "notes": [],
+    "language": "C#"
+  }
+}

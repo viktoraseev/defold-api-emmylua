@@ -1,0 +1,44 @@
+{
+  "elements": [
+    {
+      "type": "TYPEDEF",
+      "name": "HHullSet2D",
+      "brief": "2D Hull set handle",
+      "description": "2D Hull set handle",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "HCollisionShape2D",
+      "brief": "2D collision shape handle",
+      "description": "2D collision shape handle",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    }
+  ],
+  "info": {
+    "namespace": "dmPhysics",
+    "name": "Physics",
+    "brief": "Physics",
+    "description": "Physics related structs and functions",
+    "path": "dmsdk/physics/physics.h",
+    "file": "dmsdk/physics/physics.h",
+    "notes": [],
+    "language": "C++"
+  }
+}

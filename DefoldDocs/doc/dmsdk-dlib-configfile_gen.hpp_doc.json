@@ -1,0 +1,638 @@
+{
+  "elements": [
+    {
+      "type": "TYPEDEF",
+      "name": "HConfig",
+      "brief": "HConfigFile type definition",
+      "description": "Each game session has a single config file that holds all parameters from game.project and any overridden values.",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [
+        "Properties can be overridden on command line or via the config file extension system. (See [ref:DM_DECLARE_CONFIGFILE_EXTENSION])"
+      ],
+      "language": "C++"
+    },
+    {
+      "type": "FUNCTION",
+      "name": "GetString",
+      "brief": "Get config value as string, returns default if the...",
+      "description": "Get config value as string, returns default if the key isn't found",
+      "returnvalues": [
+        {
+          "name": "value",
+          "doc": "found value or default value",
+          "types": [
+            "const char*"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "config",
+          "doc": "Config file handle",
+          "types": [
+            "HConfigFile"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "key",
+          "doc": "Key in format section.key (.key for no section)",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "default_value",
+          "doc": "Default value to return if key isn't found",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "<div class=\"codehilite\"><pre><span></span><code><span class=\"k\">static</span><span class=\"w\"> </span><span class=\"n\">ExtensionResult</span><span class=\"w\"> </span><span class=\"nf\">AppInitialize</span><span class=\"p\">(</span><span class=\"n\">ExtensionAppParams</span><span class=\"o\">*</span><span class=\"w\"> </span><span class=\"n\">params</span><span class=\"p\">)</span><span class=\"w\"></span>\n<span class=\"p\">{</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"k\">const</span><span class=\"w\"> </span><span class=\"kt\">char</span><span class=\"o\">*</span><span class=\"w\"> </span><span class=\"n\">projectTitle</span><span class=\"w\"> </span><span class=\"o\">=</span><span class=\"w\"> </span><span class=\"n\">ConfigFileGetString</span><span class=\"p\">(</span><span class=\"n\">params</span><span class=\"o\">-&gt;</span><span class=\"n\">m_ConfigFile</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"s\">&quot;project.title&quot;</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"s\">&quot;Untitled&quot;</span><span class=\"p\">);</span><span class=\"w\"></span>\n<span class=\"p\">}</span><span class=\"w\"></span>\n<span class=\"err\">``````</span><span class=\"n\">cpp</span><span class=\"w\"></span>\n<span class=\"k\">static</span><span class=\"w\"> </span><span class=\"n\">dmExtension</span><span class=\"o\">::</span><span class=\"n\">Result</span><span class=\"w\"> </span><span class=\"n\">AppInitialize</span><span class=\"p\">(</span><span class=\"n\">dmExtension</span><span class=\"o\">::</span><span class=\"n\">AppParams</span><span class=\"o\">*</span><span class=\"w\"> </span><span class=\"n\">params</span><span class=\"p\">)</span><span class=\"w\"></span>\n<span class=\"p\">{</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"k\">const</span><span class=\"w\"> </span><span class=\"kt\">char</span><span class=\"o\">*</span><span class=\"w\"> </span><span class=\"n\">projectTitle</span><span class=\"w\"> </span><span class=\"o\">=</span><span class=\"w\"> </span><span class=\"n\">dmConfigFile</span><span class=\"o\">::</span><span class=\"n\">GetString</span><span class=\"p\">(</span><span class=\"n\">params</span><span class=\"o\">-&gt;</span><span class=\"n\">m_ConfigFile</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"s\">&quot;project.title&quot;</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"s\">&quot;Untitled&quot;</span><span class=\"p\">);</span><span class=\"w\"></span>\n<span class=\"p\">}</span><span class=\"w\"></span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": "C++"
+    },
+    {
+      "type": "FUNCTION",
+      "name": "GetInt",
+      "brief": "get config value as integer",
+      "description": "Get config value as integer, returns default if the key isn't found",
+      "returnvalues": [
+        {
+          "name": "value",
+          "doc": "found value or default value",
+          "types": [
+            "int32_t"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "config",
+          "doc": "Config file handle",
+          "types": [
+            "HConfigFile"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "key",
+          "doc": "Key in format section.key (.key for no section)",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "default_value",
+          "doc": "Default value to return if key isn't found",
+          "types": [
+            "int32_t"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "<div class=\"codehilite\"><pre><span></span><code><span class=\"k\">static</span><span class=\"w\"> </span><span class=\"n\">ExtensionResult</span><span class=\"w\"> </span><span class=\"nf\">AppInitialize</span><span class=\"p\">(</span><span class=\"n\">ExtensionAppParams</span><span class=\"o\">*</span><span class=\"w\"> </span><span class=\"n\">params</span><span class=\"p\">)</span><span class=\"w\"></span>\n<span class=\"p\">{</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"kt\">int32_t</span><span class=\"w\"> </span><span class=\"n\">displayWidth</span><span class=\"w\"> </span><span class=\"o\">=</span><span class=\"w\"> </span><span class=\"n\">ConfigFileGetInt</span><span class=\"p\">(</span><span class=\"n\">params</span><span class=\"o\">-&gt;</span><span class=\"n\">m_ConfigFile</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"s\">&quot;display.width&quot;</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"mi\">640</span><span class=\"p\">);</span><span class=\"w\"></span>\n<span class=\"p\">}</span><span class=\"w\"></span>\n<span class=\"err\">``````</span><span class=\"n\">cpp</span><span class=\"w\"></span>\n<span class=\"k\">static</span><span class=\"w\"> </span><span class=\"n\">dmExtension</span><span class=\"o\">::</span><span class=\"n\">Result</span><span class=\"w\"> </span><span class=\"n\">AppInitialize</span><span class=\"p\">(</span><span class=\"n\">dmExtension</span><span class=\"o\">::</span><span class=\"n\">AppParams</span><span class=\"o\">*</span><span class=\"w\"> </span><span class=\"n\">params</span><span class=\"p\">)</span><span class=\"w\"></span>\n<span class=\"p\">{</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"kt\">int32_t</span><span class=\"w\"> </span><span class=\"n\">displayWidth</span><span class=\"w\"> </span><span class=\"o\">=</span><span class=\"w\"> </span><span class=\"n\">dmConfigFile</span><span class=\"o\">::</span><span class=\"n\">GetInt</span><span class=\"p\">(</span><span class=\"n\">params</span><span class=\"o\">-&gt;</span><span class=\"n\">m_ConfigFile</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"s\">&quot;display.width&quot;</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"mi\">640</span><span class=\"p\">);</span><span class=\"w\"></span>\n<span class=\"p\">}</span><span class=\"w\"></span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": "C++"
+    },
+    {
+      "type": "FUNCTION",
+      "name": "GetFloat",
+      "brief": "get config value as float",
+      "description": "Get config value as float, returns default if the key isn't found",
+      "returnvalues": [
+        {
+          "name": "value",
+          "doc": "found value or default value",
+          "types": [
+            "int32_t"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "config",
+          "doc": "Config file handle",
+          "types": [
+            "HConfigFile"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "key",
+          "doc": "Key in format section.key (.key for no section)",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "default_value",
+          "doc": "Default value to return if key isn't found",
+          "types": [
+            "int32_t"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "<div class=\"codehilite\"><pre><span></span><code><span class=\"k\">static</span><span class=\"w\"> </span><span class=\"n\">ExtensionResult</span><span class=\"w\"> </span><span class=\"nf\">AppInitialize</span><span class=\"p\">(</span><span class=\"n\">ExtensionAppParams</span><span class=\"o\">*</span><span class=\"w\"> </span><span class=\"n\">params</span><span class=\"p\">)</span><span class=\"w\"></span>\n<span class=\"p\">{</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"kt\">float</span><span class=\"w\"> </span><span class=\"n\">gravity</span><span class=\"w\"> </span><span class=\"o\">=</span><span class=\"w\"> </span><span class=\"n\">ConfigFileGetFloat</span><span class=\"p\">(</span><span class=\"n\">params</span><span class=\"o\">-&gt;</span><span class=\"n\">m_ConfigFile</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"s\">&quot;physics.gravity_y&quot;</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"mf\">-9.8f</span><span class=\"p\">);</span><span class=\"w\"></span>\n<span class=\"p\">}</span><span class=\"w\"></span>\n<span class=\"err\">``````</span><span class=\"n\">cpp</span><span class=\"w\"></span>\n<span class=\"k\">static</span><span class=\"w\"> </span><span class=\"n\">dmExtension</span><span class=\"o\">::</span><span class=\"n\">Result</span><span class=\"w\"> </span><span class=\"n\">AppInitialize</span><span class=\"p\">(</span><span class=\"n\">dmExtension</span><span class=\"o\">::</span><span class=\"n\">AppParams</span><span class=\"o\">*</span><span class=\"w\"> </span><span class=\"n\">params</span><span class=\"p\">)</span><span class=\"w\"></span>\n<span class=\"p\">{</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"kt\">float</span><span class=\"w\"> </span><span class=\"n\">gravity</span><span class=\"w\"> </span><span class=\"o\">=</span><span class=\"w\"> </span><span class=\"n\">dmConfigFile</span><span class=\"o\">::</span><span class=\"n\">GetFloat</span><span class=\"p\">(</span><span class=\"n\">params</span><span class=\"o\">-&gt;</span><span class=\"n\">m_ConfigFile</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"s\">&quot;physics.gravity_y&quot;</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"mf\">-9.8f</span><span class=\"p\">);</span><span class=\"w\"></span>\n<span class=\"p\">}</span><span class=\"w\"></span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": "C++"
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "HConfigFile",
+      "brief": "HConfigFile type definition",
+      "description": "Each game session has a single config file that holds all parameters from game.project and any overridden values.",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [
+        "Properties can be overridden on command line or via the config file extension system. (See [ref:DM_DECLARE_CONFIGFILE_EXTENSION])"
+      ],
+      "language": "C"
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ConfigFileGetString",
+      "brief": "Get config value as string, returns default if the...",
+      "description": "Get config value as string, returns default if the key isn't found",
+      "returnvalues": [
+        {
+          "name": "value",
+          "doc": "found value or default value",
+          "types": [
+            "const char*"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "config",
+          "doc": "Config file handle",
+          "types": [
+            "HConfigFile"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "key",
+          "doc": "Key in format section.key (.key for no section)",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "default_value",
+          "doc": "Default value to return if key isn't found",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "<div class=\"codehilite\"><pre><span></span><code><span class=\"k\">static</span><span class=\"w\"> </span><span class=\"n\">ExtensionResult</span><span class=\"w\"> </span><span class=\"nf\">AppInitialize</span><span class=\"p\">(</span><span class=\"n\">ExtensionAppParams</span><span class=\"o\">*</span><span class=\"w\"> </span><span class=\"n\">params</span><span class=\"p\">)</span><span class=\"w\"></span>\n<span class=\"p\">{</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"k\">const</span><span class=\"w\"> </span><span class=\"kt\">char</span><span class=\"o\">*</span><span class=\"w\"> </span><span class=\"n\">projectTitle</span><span class=\"w\"> </span><span class=\"o\">=</span><span class=\"w\"> </span><span class=\"n\">ConfigFileGetString</span><span class=\"p\">(</span><span class=\"n\">params</span><span class=\"o\">-&gt;</span><span class=\"n\">m_ConfigFile</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"s\">&quot;project.title&quot;</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"s\">&quot;Untitled&quot;</span><span class=\"p\">);</span><span class=\"w\"></span>\n<span class=\"p\">}</span><span class=\"w\"></span>\n<span class=\"err\">``````</span><span class=\"n\">cpp</span><span class=\"w\"></span>\n<span class=\"k\">static</span><span class=\"w\"> </span><span class=\"n\">dmExtension</span><span class=\"o\">::</span><span class=\"n\">Result</span><span class=\"w\"> </span><span class=\"n\">AppInitialize</span><span class=\"p\">(</span><span class=\"n\">dmExtension</span><span class=\"o\">::</span><span class=\"n\">AppParams</span><span class=\"o\">*</span><span class=\"w\"> </span><span class=\"n\">params</span><span class=\"p\">)</span><span class=\"w\"></span>\n<span class=\"p\">{</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"k\">const</span><span class=\"w\"> </span><span class=\"kt\">char</span><span class=\"o\">*</span><span class=\"w\"> </span><span class=\"n\">projectTitle</span><span class=\"w\"> </span><span class=\"o\">=</span><span class=\"w\"> </span><span class=\"n\">dmConfigFile</span><span class=\"o\">::</span><span class=\"n\">GetString</span><span class=\"p\">(</span><span class=\"n\">params</span><span class=\"o\">-&gt;</span><span class=\"n\">m_ConfigFile</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"s\">&quot;project.title&quot;</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"s\">&quot;Untitled&quot;</span><span class=\"p\">);</span><span class=\"w\"></span>\n<span class=\"p\">}</span><span class=\"w\"></span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": "C"
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ConfigFileGetInt",
+      "brief": "get config value as integer",
+      "description": "Get config value as integer, returns default if the key isn't found",
+      "returnvalues": [
+        {
+          "name": "value",
+          "doc": "found value or default value",
+          "types": [
+            "int32_t"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "config",
+          "doc": "Config file handle",
+          "types": [
+            "HConfigFile"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "key",
+          "doc": "Key in format section.key (.key for no section)",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "default_value",
+          "doc": "Default value to return if key isn't found",
+          "types": [
+            "int32_t"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "<div class=\"codehilite\"><pre><span></span><code><span class=\"k\">static</span><span class=\"w\"> </span><span class=\"n\">ExtensionResult</span><span class=\"w\"> </span><span class=\"nf\">AppInitialize</span><span class=\"p\">(</span><span class=\"n\">ExtensionAppParams</span><span class=\"o\">*</span><span class=\"w\"> </span><span class=\"n\">params</span><span class=\"p\">)</span><span class=\"w\"></span>\n<span class=\"p\">{</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"kt\">int32_t</span><span class=\"w\"> </span><span class=\"n\">displayWidth</span><span class=\"w\"> </span><span class=\"o\">=</span><span class=\"w\"> </span><span class=\"n\">ConfigFileGetInt</span><span class=\"p\">(</span><span class=\"n\">params</span><span class=\"o\">-&gt;</span><span class=\"n\">m_ConfigFile</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"s\">&quot;display.width&quot;</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"mi\">640</span><span class=\"p\">);</span><span class=\"w\"></span>\n<span class=\"p\">}</span><span class=\"w\"></span>\n<span class=\"err\">``````</span><span class=\"n\">cpp</span><span class=\"w\"></span>\n<span class=\"k\">static</span><span class=\"w\"> </span><span class=\"n\">dmExtension</span><span class=\"o\">::</span><span class=\"n\">Result</span><span class=\"w\"> </span><span class=\"n\">AppInitialize</span><span class=\"p\">(</span><span class=\"n\">dmExtension</span><span class=\"o\">::</span><span class=\"n\">AppParams</span><span class=\"o\">*</span><span class=\"w\"> </span><span class=\"n\">params</span><span class=\"p\">)</span><span class=\"w\"></span>\n<span class=\"p\">{</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"kt\">int32_t</span><span class=\"w\"> </span><span class=\"n\">displayWidth</span><span class=\"w\"> </span><span class=\"o\">=</span><span class=\"w\"> </span><span class=\"n\">dmConfigFile</span><span class=\"o\">::</span><span class=\"n\">GetInt</span><span class=\"p\">(</span><span class=\"n\">params</span><span class=\"o\">-&gt;</span><span class=\"n\">m_ConfigFile</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"s\">&quot;display.width&quot;</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"mi\">640</span><span class=\"p\">);</span><span class=\"w\"></span>\n<span class=\"p\">}</span><span class=\"w\"></span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": "C"
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ConfigFileGetFloat",
+      "brief": "get config value as float",
+      "description": "Get config value as float, returns default if the key isn't found",
+      "returnvalues": [
+        {
+          "name": "value",
+          "doc": "found value or default value",
+          "types": [
+            "int32_t"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "config",
+          "doc": "Config file handle",
+          "types": [
+            "HConfigFile"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "key",
+          "doc": "Key in format section.key (.key for no section)",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "default_value",
+          "doc": "Default value to return if key isn't found",
+          "types": [
+            "int32_t"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "<div class=\"codehilite\"><pre><span></span><code><span class=\"k\">static</span><span class=\"w\"> </span><span class=\"n\">ExtensionResult</span><span class=\"w\"> </span><span class=\"nf\">AppInitialize</span><span class=\"p\">(</span><span class=\"n\">ExtensionAppParams</span><span class=\"o\">*</span><span class=\"w\"> </span><span class=\"n\">params</span><span class=\"p\">)</span><span class=\"w\"></span>\n<span class=\"p\">{</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"kt\">float</span><span class=\"w\"> </span><span class=\"n\">gravity</span><span class=\"w\"> </span><span class=\"o\">=</span><span class=\"w\"> </span><span class=\"n\">ConfigFileGetFloat</span><span class=\"p\">(</span><span class=\"n\">params</span><span class=\"o\">-&gt;</span><span class=\"n\">m_ConfigFile</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"s\">&quot;physics.gravity_y&quot;</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"mf\">-9.8f</span><span class=\"p\">);</span><span class=\"w\"></span>\n<span class=\"p\">}</span><span class=\"w\"></span>\n<span class=\"err\">``````</span><span class=\"n\">cpp</span><span class=\"w\"></span>\n<span class=\"k\">static</span><span class=\"w\"> </span><span class=\"n\">dmExtension</span><span class=\"o\">::</span><span class=\"n\">Result</span><span class=\"w\"> </span><span class=\"n\">AppInitialize</span><span class=\"p\">(</span><span class=\"n\">dmExtension</span><span class=\"o\">::</span><span class=\"n\">AppParams</span><span class=\"o\">*</span><span class=\"w\"> </span><span class=\"n\">params</span><span class=\"p\">)</span><span class=\"w\"></span>\n<span class=\"p\">{</span><span class=\"w\"></span>\n<span class=\"w\">    </span><span class=\"kt\">float</span><span class=\"w\"> </span><span class=\"n\">gravity</span><span class=\"w\"> </span><span class=\"o\">=</span><span class=\"w\"> </span><span class=\"n\">dmConfigFile</span><span class=\"o\">::</span><span class=\"n\">GetFloat</span><span class=\"p\">(</span><span class=\"n\">params</span><span class=\"o\">-&gt;</span><span class=\"n\">m_ConfigFile</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"s\">&quot;physics.gravity_y&quot;</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"mf\">-9.8f</span><span class=\"p\">);</span><span class=\"w\"></span>\n<span class=\"p\">}</span><span class=\"w\"></span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": "C"
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "FConfigFileCreate",
+      "brief": "Called when config file extension is created",
+      "description": "Called when config file extension is created",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "config",
+          "doc": "Config file handle",
+          "types": [
+            "HConfigFile"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": "C"
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "FConfigFileDestroy",
+      "brief": "Called when config file extension is destroyed",
+      "description": "Called when config file extension is destroyed",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "config",
+          "doc": "Config file handle",
+          "types": [
+            "HConfigFile"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": "C"
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "FConfigFileGetString",
+      "brief": "Called when a string is requested from the config file extension",
+      "description": "Called when a string is requested from the config file extension",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "True if property was found",
+          "types": [
+            "bool"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "config",
+          "doc": "Config file handle",
+          "types": [
+            "HConfigFile"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "key",
+          "doc": "Key in format section.key (.key for no section)",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "default_value",
+          "doc": "Default value to return if key isn't found",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "out",
+          "doc": "Out argument where result is stored if found. Caller must free() this memory.",
+          "types": [
+            "const char**"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": "C"
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "FConfigFileGetInt",
+      "brief": "Called when an integer is requested from the config file extension",
+      "description": "Called when an integer is requested from the config file extension",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "True if property was found",
+          "types": [
+            "bool"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "config",
+          "doc": "Config file handle",
+          "types": [
+            "HConfigFile"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "key",
+          "doc": "Key in format section.key (.key for no section)",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "default_value",
+          "doc": "Default value to return if key isn't found",
+          "types": [
+            "int32_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "out",
+          "doc": "Out argument where result is stored if found.",
+          "types": [
+            "int32_t*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": "C"
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "FConfigFileGetFloat",
+      "brief": "Called when a float is requested from the config file extension",
+      "description": "Called when a float is requested from the config file extension",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "True if property was found",
+          "types": [
+            "bool"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "config",
+          "doc": "Config file handle",
+          "types": [
+            "HConfigFile"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "key",
+          "doc": "Key in format section.key (.key for no section)",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "default_value",
+          "doc": "Default value to return if key isn't found",
+          "types": [
+            "float"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "out",
+          "doc": "Out argument where result is stored if found.",
+          "types": [
+            "float*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": "C"
+    },
+    {
+      "type": "FUNCTION",
+      "name": "ConfigFileExtensionDescBufferSize",
+      "brief": "Used when registering new config file extensions.",
+      "description": "It defines the minimum size of the description blob being registered.",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": "C"
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "FConfigFileGetFloat",
+      "brief": "Called when a float is requested from the config file extension",
+      "description": "Called when a float is requested from the config file extension",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "True if property was found",
+          "types": [
+            "bool"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "config",
+          "doc": "Config file handle",
+          "types": [
+            "HConfigFile"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "key",
+          "doc": "Key in format section.key (.key for no section)",
+          "types": [
+            "const char*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "default_value",
+          "doc": "Default value to return if key isn't found",
+          "types": [
+            "float"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "out",
+          "doc": "Out argument where result is stored if found.",
+          "types": [
+            "float*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": "C"
+    },
+    {
+      "type": "MACRO",
+      "name": "DM_DECLARE_CONFIGFILE_EXTENSION",
+      "brief": "declare a new config file extension",
+      "description": "Declare and register new config file extension to the engine.\nEach get function should return true if it sets a proper value. Otherwise return false.",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "Register a new config file extension:\n<div class=\"codehilite\"><pre><span></span><code><span class=\"n\">DM_DECLARE_CONFIGFILE_EXTENSION</span><span class=\"p\">(</span><span class=\"n\">MyConfigfileExtension</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"s\">&quot;MyConfigfileExtension&quot;</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">create</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">destroy</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">get_string</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">get_int</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">get_float</span><span class=\"p\">);</span><span class=\"w\"></span>\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": "C"
+    }
+  ],
+  "info": {
+    "namespace": "dmConfigFile",
+    "name": "ConfigFile",
+    "brief": "SDK ConfigFile API documentation",
+    "description": "Configuration file access functions.\nThe configuration file is compiled version of the [file:game.project] file.",
+    "path": "dmsdk/dlib/configfile_gen.hpp",
+    "file": "dmsdk/dlib/configfile_gen.hpp",
+    "notes": [],
+    "language": "C++"
+  }
+}

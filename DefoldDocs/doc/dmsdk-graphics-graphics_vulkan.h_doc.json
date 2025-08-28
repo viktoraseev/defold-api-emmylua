@@ -1,0 +1,118 @@
+{
+  "elements": [
+    {
+      "type": "FUNCTION",
+      "name": "VulkanGetActiveSwapChainTexture",
+      "brief": "Get the current swap chain texture",
+      "description": "Get the current swap chain texture",
+      "returnvalues": [
+        {
+          "name": "swapchain",
+          "doc": "the swap chain texture for the current frame",
+          "types": [
+            "dmGraphics::HTexture"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "context",
+          "doc": "the vulkan context",
+          "types": [
+            "dmGraphics::HContext"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "VulkanTextureToMetal",
+      "brief": "Get a native MTLTexture from a Vulkan HTexture. On...",
+      "description": "Get a native MTLTexture from a Vulkan HTexture. Only available when using Mac/iOS.",
+      "returnvalues": [
+        {
+          "name": "mtl_texture",
+          "doc": "the Metal texture wrapped with a (__bridge void*)",
+          "types": [
+            "id<MTLTexture>"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "context",
+          "doc": "the vulkan context",
+          "types": [
+            "dmGraphics::HContext"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "texture",
+          "doc": "the texture",
+          "types": [
+            "dmGraphics::HTexture"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "VulkanGraphicsCommandQueueToMetal",
+      "brief": "Get the native MTLCommandQueue from the Vulkan con...",
+      "description": "Get the native MTLCommandQueue from the Vulkan context. Only available when using Mac/iOS.",
+      "returnvalues": [
+        {
+          "name": "mtl_queue",
+          "doc": "the Metal graphics queue wrapped with a (__bridge void*)",
+          "types": [
+            "id<MTLCommandQueue>"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "context",
+          "doc": "the vulkan context",
+          "types": [
+            "dmGraphics::HContext"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    }
+  ],
+  "info": {
+    "namespace": "dmGraphics",
+    "name": "Graphics Vulkan",
+    "brief": "Graphics API documentation",
+    "description": "[file:<dmsdk/graphics/graphics_vulkan.h>]\n\nGraphics Vulkan API",
+    "path": "dmsdk/graphics/graphics_vulkan.h",
+    "file": "dmsdk/graphics/graphics_vulkan.h",
+    "notes": [],
+    "language": "C++"
+  }
+}

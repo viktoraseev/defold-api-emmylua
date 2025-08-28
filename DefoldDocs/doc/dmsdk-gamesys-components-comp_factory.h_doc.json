@@ -1,0 +1,110 @@
+{
+  "elements": [
+    {
+      "type": "FUNCTION",
+      "name": "CompFactorySpawn",
+      "brief": "Spawns a new gameobject instance in a collection u...",
+      "description": "Spawns a new gameobject instance in a collection using a factory component.",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "Result of the operation",
+          "types": [
+            "dmGameObject::Result"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "world",
+          "doc": "Factory world",
+          "types": [
+            "HFactoryWorld"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "component",
+          "doc": "Factory component",
+          "types": [
+            "HFactoryComponent"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "collection",
+          "doc": "Gameobject collection to spawn into",
+          "types": [
+            "HCollection"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "id",
+          "doc": "Identifier for the new instance. Must be unique within the collection. Pass 0 to automatically generate a unique identifier (e.g. /instance1, /instance2 etc.).",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "position",
+          "doc": "Position of the spawned object",
+          "types": [
+            "dmVMath::Point3"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "rotation",
+          "doc": "Rotation of the spawned object",
+          "types": [
+            "dmVMath::Quat"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "scale",
+          "doc": "Scale of the spawned object",
+          "types": [
+            "dmVMath::Vector3"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "properties",
+          "doc": "Property container with override properties",
+          "types": [
+            "dmGameObject::HPropertyContainer"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "out_instance",
+          "doc": "Output parameter for the new instance",
+          "types": [
+            "dmGameObject::HInstance"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    }
+  ],
+  "info": {
+    "namespace": "dmGameSystem",
+    "name": "Factory",
+    "brief": "Factory component functions",
+    "description": "Factory component functions.",
+    "path": "dmsdk/gamesys/components/comp_factory.h",
+    "file": "dmsdk/gamesys/components/comp_factory.h",
+    "notes": [],
+    "language": "C++"
+  }
+}

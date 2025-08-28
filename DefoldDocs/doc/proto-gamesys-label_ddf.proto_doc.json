@@ -1,0 +1,13 @@
+{
+  "elements": [],
+  "info": {
+    "namespace": "label",
+    "name": "Label",
+    "brief": "Label API documentation",
+    "description": "Label API documentation",
+    "path": "../../proto/gamesys/label_ddf.proto",
+    "file": "",
+    "notes": [],
+    "language": "Lua"
+  }
+}

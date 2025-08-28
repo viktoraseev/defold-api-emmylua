@@ -1,0 +1,1297 @@
+{
+  "elements": [
+    {
+      "type": "TYPEDEF",
+      "name": "HContext",
+      "brief": "A handle to a gui context",
+      "description": "A handle to a gui context",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "HScene",
+      "brief": "A handle to a gui scene",
+      "description": "A handle to a gui scene",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "HNode",
+      "brief": "A handle to a gui node",
+      "description": "A handle to a gui node",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "HScript",
+      "brief": "A handle to a gui script",
+      "description": "A handle to a gui script",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "TYPEDEF",
+      "name": "HTextureSource",
+      "brief": "A handle to a texture source, which can be a point...",
+      "description": "A handle to a texture source, which can be a pointer to a resource,\na dmGraphics::HTexture or a dynamic texture created from a gui script.",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "INVALID_HANDLE",
+      "brief": "Invalid node handle",
+      "description": "Invalid node handle",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "ENUM",
+      "name": "Playback",
+      "brief": "",
+      "description": "",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [
+        {
+          "name": "PLAYBACK_ONCE_FORWARD",
+          "doc": "",
+          "type": ""
+        },
+        {
+          "name": "PLAYBACK_ONCE_BACKWARD",
+          "doc": "",
+          "type": ""
+        },
+        {
+          "name": "PLAYBACK_ONCE_PINGPONG",
+          "doc": "",
+          "type": ""
+        },
+        {
+          "name": "PLAYBACK_LOOP_FORWARD",
+          "doc": "",
+          "type": ""
+        },
+        {
+          "name": "PLAYBACK_LOOP_BACKWARD",
+          "doc": "",
+          "type": ""
+        },
+        {
+          "name": "PLAYBACK_LOOP_PINGPONG",
+          "doc": "",
+          "type": ""
+        },
+        {
+          "name": "PLAYBACK_NONE",
+          "doc": "",
+          "type": ""
+        }
+      ],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "ENUM",
+      "name": "AdjustReference",
+      "brief": "",
+      "description": "",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [
+        {
+          "name": "ADJUST_REFERENCE_PARENT",
+          "doc": "",
+          "type": ""
+        },
+        {
+          "name": "ADJUST_REFERENCE_DISABLED",
+          "doc": "",
+          "type": ""
+        }
+      ],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "ENUM",
+      "name": "NodeTextureType",
+      "brief": "This enum denotes what kind of texture type the m_...",
+      "description": "This enum denotes what kind of texture type the m_Texture pointer is referencing.",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [
+        {
+          "name": "NODE_TEXTURE_TYPE_NONE",
+          "doc": "",
+          "type": ""
+        },
+        {
+          "name": "NODE_TEXTURE_TYPE_TEXTURE",
+          "doc": "",
+          "type": ""
+        },
+        {
+          "name": "NODE_TEXTURE_TYPE_TEXTURE_SET",
+          "doc": "",
+          "type": ""
+        }
+      ],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "ENUM",
+      "name": "Result",
+      "brief": "",
+      "description": "",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [
+        {
+          "name": "NODE_TYPE_BOX",
+          "doc": "//!< 0,",
+          "type": ""
+        },
+        {
+          "name": "NODE_TYPE_TEXT",
+          "doc": "//!< 1,",
+          "type": ""
+        },
+        {
+          "name": "NODE_TYPE_PIE",
+          "doc": "//!< 2,",
+          "type": ""
+        },
+        {
+          "name": "NODE_TYPE_TEMPLATE",
+          "doc": "//!< 3,",
+          "type": ""
+        },
+        {
+          "name": "NODE_TYPE_PARTICLEFX",
+          "doc": "//!< 5,",
+          "type": ""
+        },
+        {
+          "name": "NODE_TYPE_CUSTOM",
+          "doc": "//!< 6,",
+          "type": ""
+        },
+        {
+          "name": "NODE_TYPE_COUNT",
+          "doc": "//!< 7,",
+          "type": ""
+        }
+      ],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "ENUM",
+      "name": "Result",
+      "brief": "",
+      "description": "",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [
+        {
+          "name": "RESULT_OK",
+          "doc": "//!< 0",
+          "type": ""
+        },
+        {
+          "name": "RESULT_SYNTAX_ERROR",
+          "doc": "//!< -1",
+          "type": ""
+        },
+        {
+          "name": "RESULT_SCRIPT_ERROR",
+          "doc": "//!< -2",
+          "type": ""
+        },
+        {
+          "name": "RESULT_OUT_OF_RESOURCES",
+          "doc": "//!< -4",
+          "type": ""
+        },
+        {
+          "name": "RESULT_RESOURCE_NOT_FOUND",
+          "doc": "//!< -5",
+          "type": ""
+        },
+        {
+          "name": "RESULT_TEXTURE_ALREADY_EXISTS",
+          "doc": "//!< -6",
+          "type": ""
+        },
+        {
+          "name": "RESULT_INVAL_ERROR",
+          "doc": "//!< -7",
+          "type": ""
+        },
+        {
+          "name": "RESULT_INF_RECURSION",
+          "doc": "//!< -8",
+          "type": ""
+        },
+        {
+          "name": "RESULT_DATA_ERROR",
+          "doc": "//!< -9",
+          "type": ""
+        },
+        {
+          "name": "RESULT_WRONG_TYPE",
+          "doc": "//!< -10",
+          "type": ""
+        }
+      ],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "NewNode",
+      "brief": "",
+      "description": "",
+      "returnvalues": [
+        {
+          "name": "node",
+          "doc": "the created node",
+          "types": [
+            "dmGui::HNode"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "scene",
+          "doc": "the gui scene",
+          "types": [
+            "dmGui::HScene"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "position",
+          "doc": "the position",
+          "types": [
+            "dmVMath::Point3"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "size",
+          "doc": "the size",
+          "types": [
+            "dmVMath::Vector3"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "node_type",
+          "doc": "the node type",
+          "types": [
+            "dmGui::NodeType"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "custom_type",
+          "doc": "If node_type == dmGui::NODE_TYPE_CUSTOM, then this is used to create a custom node data for the registered custom type",
+          "types": [
+            "uint32_t"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "DeleteNode",
+      "brief": "Defer delete a node",
+      "description": "Defer delete a node",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "scene",
+          "doc": "the gui scene",
+          "types": [
+            "dmGui::HScene"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "node",
+          "doc": "the node to delete",
+          "types": [
+            "dmGui::HNode"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "SetNodeId",
+      "brief": "Set the id of a node.",
+      "description": "Set the id of a node.",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "scene",
+          "doc": "the gui scene",
+          "types": [
+            "dmGui::HScene"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "node",
+          "doc": "the gui node",
+          "types": [
+            "dmGui::HNode"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "id",
+          "doc": "the id",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [
+        "The id must be unique"
+      ],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "GetNodeId",
+      "brief": "Get the id of a node.",
+      "description": "Get the id of a node.",
+      "returnvalues": [
+        {
+          "name": "id",
+          "doc": "the id of the node",
+          "types": [
+            "dmhash_t"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "scene",
+          "doc": "the gui scene",
+          "types": [
+            "dmGui::HScene"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "node",
+          "doc": "the gui node",
+          "types": [
+            "dmGui::HNode"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "SetNodeParent",
+      "brief": "Set the parent of a gui node",
+      "description": "Set the parent of a gui node",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "dmGui::RESULT_OK is successful",
+          "types": [
+            "dmGui::Result"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "scene",
+          "doc": "the gui scene",
+          "types": [
+            "dmGui::HScene"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "node",
+          "doc": "the gui node",
+          "types": [
+            "dmGui::HNode"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "parent",
+          "doc": "the new parent. May be null",
+          "types": [
+            "dmGui::HNode"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "keep_scene_transform",
+          "doc": "true to keep the world position",
+          "types": [
+            "bool"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "GetNodeParent",
+      "brief": "Get the parent of a gui node",
+      "description": "Get the parent of a gui node",
+      "returnvalues": [
+        {
+          "name": "parent",
+          "doc": "the parent, or INVALID_HANDLE is unsuccessful",
+          "types": [
+            "dmGui::HNode"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "scene",
+          "doc": "the gui scene",
+          "types": [
+            "dmGui::HScene"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "node",
+          "doc": "the gui node",
+          "types": [
+            "dmGui::HNode"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "GetFirstChildNode",
+      "brief": "Get first child node",
+      "description": "Get first child node",
+      "returnvalues": [
+        {
+          "name": "child",
+          "doc": "The first child node",
+          "types": [
+            "dmGui::HNode"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "scene",
+          "doc": "the gui scene",
+          "types": [
+            "dmGui::HScene"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "node",
+          "doc": "Gets the first child node. If 0, gets the first top level node.",
+          "types": [
+            "dmGui::HNode"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "GetNextNode",
+      "brief": "Get next sibling",
+      "description": "Get next sibling",
+      "returnvalues": [
+        {
+          "name": "sibling",
+          "doc": "the next sibling, or INVALID_HANDLE if no more siblings",
+          "types": [
+            "dmGui::HNode"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "scene",
+          "doc": "the gui scene",
+          "types": [
+            "dmGui::HScene"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "node",
+          "doc": "the current sibling",
+          "types": [
+            "dmGui::HNode"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "GetNodeIsBone",
+      "brief": "Query if the node is a bone",
+      "description": "Query if the node is a bone",
+      "returnvalues": [
+        {
+          "name": "result",
+          "doc": "true if the node is a bone",
+          "types": [
+            "bool"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "scene",
+          "doc": "the gui scene",
+          "types": [
+            "dmGui::HScene"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "node",
+          "doc": "the gui node",
+          "types": [
+            "dmGui::HNode"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "SetNodeIsBone",
+      "brief": "Set the bone state of the node",
+      "description": "Set the bone state of the node",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "scene",
+          "doc": "the gui scene",
+          "types": [
+            "dmGui::HScene"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "node",
+          "doc": "the gui node",
+          "types": [
+            "dmGui::HNode"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "is_bone",
+          "doc": "true if the node is ot be used as a bone",
+          "types": [
+            "bool"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "ENUM",
+      "name": "Property",
+      "brief": "",
+      "description": "",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [
+        {
+          "name": "PROPERTY_POSITION",
+          "doc": "   //!< 0",
+          "type": ""
+        },
+        {
+          "name": "PROPERTY_ROTATION",
+          "doc": "   //!< 1",
+          "type": ""
+        },
+        {
+          "name": "PROPERTY_SCALE",
+          "doc": "      //!< 2",
+          "type": ""
+        },
+        {
+          "name": "PROPERTY_COLOR",
+          "doc": "      //!< 3",
+          "type": ""
+        },
+        {
+          "name": "PROPERTY_SIZE",
+          "doc": "       //!< 4",
+          "type": ""
+        },
+        {
+          "name": "PROPERTY_OUTLINE",
+          "doc": "    //!< 5",
+          "type": ""
+        },
+        {
+          "name": "PROPERTY_SHADOW",
+          "doc": "     //!< 6",
+          "type": ""
+        },
+        {
+          "name": "PROPERTY_SLICE9",
+          "doc": "     //!< 7",
+          "type": ""
+        },
+        {
+          "name": "PROPERTY_PIE_PARAMS",
+          "doc": " //!< 8",
+          "type": ""
+        },
+        {
+          "name": "PROPERTY_TEXT_PARAMS",
+          "doc": "//!< 9",
+          "type": ""
+        },
+        {
+          "name": "PROPERTY_COUNT",
+          "doc": "      //!< 10",
+          "type": ""
+        }
+      ],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "GetNodeProperty",
+      "brief": "Get property value",
+      "description": "Get property value",
+      "returnvalues": [
+        {
+          "name": "value",
+          "doc": "",
+          "types": [
+            "dmVMath::Vector4"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "scene",
+          "doc": "scene",
+          "types": [
+            "dmGui::HScene"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "node",
+          "doc": "node",
+          "types": [
+            "dmGui::HNode"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "property",
+          "doc": "property enum",
+          "types": [
+            "dmGui::Property"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "SetNodeProperty",
+      "brief": "Set property value",
+      "description": "Set property value",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "scene",
+          "doc": "scene",
+          "types": [
+            "dmGui::HScene"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "node",
+          "doc": "node",
+          "types": [
+            "dmGui::HNode"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "property",
+          "doc": "property enum",
+          "types": [
+            "dmGui::Property"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "value",
+          "doc": "",
+          "types": [
+            "dmVMath::Vector4"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "ENUM",
+      "name": "AdjustMode",
+      "brief": "",
+      "description": "",
+      "returnvalues": [],
+      "parameters": [],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [
+        {
+          "name": "ADJUST_MODE_FIT",
+          "doc": "    //!< 0",
+          "type": ""
+        },
+        {
+          "name": "ADJUST_MODE_ZOOM",
+          "doc": "   //!< 1",
+          "type": ""
+        },
+        {
+          "name": "ADJUST_MODE_STRETCH",
+          "doc": "//!< 2",
+          "type": ""
+        }
+      ],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "SetNodeAdjustMode",
+      "brief": "Set adjust mode",
+      "description": "Set adjust mode",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "scene",
+          "doc": "scene",
+          "types": [
+            "dmGui::HScene"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "node",
+          "doc": "node",
+          "types": [
+            "dmGui::HNode"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "adjust_mode",
+          "doc": "the adjust mode",
+          "types": [
+            "AdjustMode"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "GetNodeCustomData",
+      "brief": "get node custom type",
+      "description": "get node custom type",
+      "returnvalues": [
+        {
+          "name": "type",
+          "doc": "the custom type. Or 0 if it is no custom type",
+          "types": [
+            "uint32_t"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "scene",
+          "doc": "the gui scene",
+          "types": [
+            "dmGui::HScene"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "node",
+          "doc": "the gui node",
+          "types": [
+            "HNode"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "GetNodeCustomData",
+      "brief": "get node custom data",
+      "description": "get node custom data",
+      "returnvalues": [
+        {
+          "name": "data",
+          "doc": "the custom data created per node by the gui node type extension",
+          "types": [
+            "void*"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "scene",
+          "doc": "the gui scene",
+          "types": [
+            "dmGui::HScene"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "node",
+          "doc": "the gui node",
+          "types": [
+            "HNode"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "GetNodeTextureId",
+      "brief": "get node texture",
+      "description": "get node texture",
+      "returnvalues": [
+        {
+          "name": "texture",
+          "doc": "the currently assigned texture",
+          "types": [
+            "dmhash_t"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "scene",
+          "doc": "the gui scene",
+          "types": [
+            "dmGui::HScene"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "node",
+          "doc": "the gui node",
+          "types": [
+            "HNode"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "SetNodeTexture",
+      "brief": "set node texture",
+      "description": "set node texture",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "scene",
+          "doc": "the gui scene",
+          "types": [
+            "dmGui::HScene"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "node",
+          "doc": "the gui node",
+          "types": [
+            "HNode"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "texture_id",
+          "doc": "the texture id",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "SetNodeTexture",
+      "brief": "set node texture",
+      "description": "set node texture",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "scene",
+          "doc": "the gui scene",
+          "types": [
+            "dmGui::HScene"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "node",
+          "doc": "the gui node",
+          "types": [
+            "HNode"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "type",
+          "doc": "the type of texture",
+          "types": [
+            "NodeTextureType"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "texture",
+          "doc": "A pointer to a e.g. dmGameSystem::TextureSetResource*",
+          "types": [
+            "void*"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "GetResource",
+      "brief": "Gets a resource by its resource alias.",
+      "description": "Gets a resource by its resource alias.",
+      "returnvalues": [
+        {
+          "name": "resource",
+          "doc": "the resource if successful",
+          "types": [
+            "void*"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "scene",
+          "doc": "the gui scene",
+          "types": [
+            "dmGui::HScene"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "resource_id",
+          "doc": "the resource alias",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "suffix_with_dot",
+          "doc": "the hash of the suffix: hash(\".spinescenec\")",
+          "types": [
+            "dmhash_t"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    },
+    {
+      "type": "FUNCTION",
+      "name": "LuaPushNode",
+      "brief": "Pushes a dmGui::HNode to the stack",
+      "description": "Pushes a dmGui::HNode to the stack",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "L",
+          "doc": "the Lua scene",
+          "types": [
+            "lua_State*"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "scene",
+          "doc": "the gui scene",
+          "types": [
+            "dmGui::HScene"
+          ],
+          "is_optional": "False"
+        },
+        {
+          "name": "node",
+          "doc": "the gui node",
+          "types": [
+            "HNode"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    }
+  ],
+  "info": {
+    "namespace": "dmGui",
+    "name": "Gui",
+    "brief": "Defold GUI system",
+    "description": "Defold GUI system",
+    "path": "dmsdk/gui/gui.h",
+    "file": "dmsdk/gui/gui.h",
+    "notes": [],
+    "language": "C++"
+  }
+}

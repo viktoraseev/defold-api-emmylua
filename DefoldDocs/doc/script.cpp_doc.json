@@ -1,0 +1,38 @@
+{
+  "elements": [
+    {
+      "type": "FUNCTION",
+      "name": "pprint",
+      "brief": "pretty printing",
+      "description": "Pretty printing of Lua values. This function prints Lua values\nin a manner similar to +print()+, but will also recurse into tables\nand pretty print them. There is a limit to how deep the function\nwill recurse.",
+      "returnvalues": [],
+      "parameters": [
+        {
+          "name": "v",
+          "doc": "value to print",
+          "types": [
+            "any"
+          ],
+          "is_optional": "False"
+        }
+      ],
+      "examples": "Pretty printing a Lua table with a nested table:\n<div class=\"codehilite\"><pre><span></span><code><span class=\"kd\">local</span> <span class=\"n\">t2</span> <span class=\"o\">=</span> <span class=\"p\">{</span> <span class=\"mi\">1</span><span class=\"p\">,</span> <span class=\"mi\">2</span><span class=\"p\">,</span> <span class=\"mi\">3</span><span class=\"p\">,</span> <span class=\"mi\">4</span> <span class=\"p\">}</span>\n<span class=\"kd\">local</span> <span class=\"n\">t</span> <span class=\"o\">=</span> <span class=\"p\">{</span> <span class=\"n\">key</span> <span class=\"o\">=</span> <span class=\"s2\">&quot;value&quot;</span><span class=\"p\">,</span> <span class=\"n\">key2</span> <span class=\"o\">=</span> <span class=\"mi\">1234</span><span class=\"p\">,</span> <span class=\"n\">key3</span> <span class=\"o\">=</span> <span class=\"n\">t2</span> <span class=\"p\">}</span>\n<span class=\"n\">pprint</span><span class=\"p\">(</span><span class=\"n\">t</span><span class=\"p\">)</span>\n</code></pre></div>\n\nResulting in the following output (note that the key order in non array\nLua tables is undefined):\n<div class=\"codehilite\"><pre><span></span><code>{\n  key3 = {\n    1 = 1,\n    2 = 2,\n    3 = 3,\n    4 = 4,\n  }\n  key2 = 1234,\n  key = value,\n}\n</code></pre></div>",
+      "replaces": "",
+      "error": "",
+      "tparams": [],
+      "members": [],
+      "notes": [],
+      "language": ""
+    }
+  ],
+  "info": {
+    "namespace": "builtins",
+    "name": "Built-ins",
+    "brief": "Built-ins API documentation",
+    "description": "Built-in scripting functions.",
+    "path": "script.cpp",
+    "file": "",
+    "notes": [],
+    "language": "Lua"
+  }
+}
